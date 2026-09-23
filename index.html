@@ -828,7 +828,7 @@ document.addEventListener('pointerdown',function(e){var inp=e.target.closest&&e.
     <table class="daily-edit-table">
       <thead><tr><th>Aukat</th><th>Azaan</th><th>Jamaat</th><th>Auto Waqt</th></tr></thead>
       <tbody>
-        <tr data-daily-prayer="fajr"><td>Fajr</td><td><input type="time" data-prayer="fajr" data-kind="azaan" step="60"></td><td><input type="time" data-prayer="fajr" data-kind="jamaat" step="60"></td><td rowspan="5" class="daily-auto-cell">
+        <tr data-daily-prayer="fajr"><td>Fajr</td><td><input type="text" inputmode="none" readonly data-prayer="fajr" data-kind="azaan" step="60"></td><td><input type="text" inputmode="none" readonly data-prayer="fajr" data-kind="jamaat" step="60"></td><td rowspan="5" class="daily-auto-cell">
   <div class="daily-auto-rows" id="dailyAutoRows">
     <div class="daily-auto-row" data-auto-index="0"><span>Subeh Sadiq</span><strong>—</strong></div>
     <div class="daily-auto-row" data-auto-index="1"><span>Sun Rise</span><strong>—</strong></div>
@@ -840,10 +840,10 @@ document.addEventListener('pointerdown',function(e){var inp=e.target.closest&&e.
     <div class="daily-auto-row" data-auto-index="7"><span>Isha</span><strong>—</strong></div>
   </div>
 </td></tr>
-        <tr data-daily-prayer="zohar"><td>Zuhar</td><td><input type="time" data-prayer="zohar" data-kind="azaan" step="60"></td><td><input type="time" data-prayer="zohar" data-kind="jamaat" step="60"></td></tr>
-        <tr data-daily-prayer="asr"><td>Asar</td><td><input type="time" data-prayer="asr" data-kind="azaan" step="60"></td><td><input type="time" data-prayer="asr" data-kind="jamaat" step="60"></td></tr>
-        <tr data-daily-prayer="maghrib"><td>Maghrib</td><td><input type="time" data-prayer="maghrib" data-kind="azaan" step="60"></td><td><input type="time" data-prayer="maghrib" data-kind="jamaat" step="60"></td></tr>
-        <tr data-daily-prayer="isha"><td>Isha</td><td><input type="time" data-prayer="isha" data-kind="azaan" step="60"></td><td><input type="time" data-prayer="isha" data-kind="jamaat" step="60"></td></tr>
+        <tr data-daily-prayer="zohar"><td>Zuhar</td><td><input type="text" inputmode="none" readonly data-prayer="zohar" data-kind="azaan" step="60"></td><td><input type="text" inputmode="none" readonly data-prayer="zohar" data-kind="jamaat" step="60"></td></tr>
+        <tr data-daily-prayer="asr"><td>Asar</td><td><input type="text" inputmode="none" readonly data-prayer="asr" data-kind="azaan" step="60"></td><td><input type="text" inputmode="none" readonly data-prayer="asr" data-kind="jamaat" step="60"></td></tr>
+        <tr data-daily-prayer="maghrib"><td>Maghrib</td><td><input type="text" inputmode="none" readonly data-prayer="maghrib" data-kind="azaan" step="60"></td><td><input type="text" inputmode="none" readonly data-prayer="maghrib" data-kind="jamaat" step="60"></td></tr>
+        <tr data-daily-prayer="isha"><td>Isha</td><td><input type="text" inputmode="none" readonly data-prayer="isha" data-kind="azaan" step="60"></td><td><input type="text" inputmode="none" readonly data-prayer="isha" data-kind="jamaat" step="60"></td></tr>
       </tbody>
     </table>
   </div>
@@ -1924,7 +1924,7 @@ if(document.readyState==='loading')window.addEventListener('DOMContentLoaded',bi
 })();
 </script>
 
-<script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("service-worker-v215.js").catch(function(e){console.warn("Service Worker registration failed",e);});});}</script><style id="v127-install-shortcut-style">
+<script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("service-worker-v216.js").catch(function(e){console.warn("Service Worker registration failed",e);});});}</script><style id="v127-install-shortcut-style">
 /* V127: mobile home-screen shortcut/install helper only. */
 #v110InstallBtn{display:none!important;position:fixed;right:14px;bottom:14px;z-index:9999;border:0;border-radius:999px;padding:11px 15px;background:#075e3b;color:#fff;font-weight:900;box-shadow:0 6px 18px #0004;cursor:pointer}
 #v110InstallBtn.show{display:block}
@@ -2563,6 +2563,13 @@ function init(){capture();var sel=document.getElementById('v184LanguageSelect');
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
+
+<style id="v216-easy-time-style">
+/* V216: easy Namaz time picker — no clock-face minute hunting. */
+.v216-time-picker{position:fixed;z-index:2147483647;left:50%;top:50%;transform:translate(-50%,-50%);width:min(330px,calc(100vw - 28px));background:#fff;border-radius:18px;box-shadow:0 14px 50px #0006;padding:14px;display:none;color:#17322a}.v216-time-picker.show{display:block}.v216-time-title{text-align:center;font-size:16px;font-weight:900;margin-bottom:10px}.v216-time-row{display:flex;gap:8px;justify-content:center;align-items:center}.v216-time-select{font-size:18px;font-weight:900;padding:9px;border:1px solid #b9d2bf;border-radius:10px;background:#fff}.v216-minutes{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:12px}.v216-minutes button{border:1px solid #b9d2bf;border-radius:9px;background:#f5faf7;padding:8px 2px;font-weight:900;font-size:13px}.v216-minutes button.active{background:#174d32;color:#fff}.v216-time-actions{display:flex;gap:8px;margin-top:12px}.v216-time-actions button{flex:1;border:0;border-radius:10px;padding:10px;font-weight:900}.v216-ok{background:#174d32;color:#fff}.v216-cancel{background:#e8eee9;color:#17322a}.v216-backdrop{position:fixed;inset:0;background:#0005;z-index:2147483646;display:none}.v216-backdrop.show{display:block}
+</style>
+<div class="v216-backdrop" id="v216TimeBackdrop"></div><div class="v216-time-picker" id="v216TimePicker" role="dialog" aria-label="Namaz time set"><div class="v216-time-title">Namaz ka time set karein</div><div class="v216-time-row"><select class="v216-time-select" id="v216Hour"></select><b>:</b><select class="v216-time-select" id="v216Ampm"><option value="AM">AM</option><option value="PM">PM</option></select></div><div class="v216-minutes" id="v216Minutes"></div><div class="v216-time-actions"><button class="v216-cancel" type="button" id="v216Cancel">Cancel</button><button class="v216-ok" type="button" id="v216Ok">Set Time</button></div></div>
+<script id="v216-easy-time-script">(function(){'use strict';var current=null,p=document.getElementById('v216TimePicker'),back=document.getElementById('v216TimeBackdrop'),h=document.getElementById('v216Hour'),ap=document.getElementById('v216Ampm'),mins=document.getElementById('v216Minutes');if(!p||!back||!h||!ap||!mins)return;for(var i=1;i<=12;i++){var o=document.createElement('option');o.value=String(i).padStart(2,'0');o.textContent=String(i).padStart(2,'0');h.appendChild(o)}for(var m=0;m<60;m++){var b=document.createElement('button');b.type='button';b.textContent=String(m).padStart(2,'0');b.dataset.min=String(m).padStart(2,'0');b.onclick=function(){mins.querySelectorAll('button').forEach(function(x){x.classList.remove('active')});this.classList.add('active')};mins.appendChild(b)}function close(){p.classList.remove('show');back.classList.remove('show');current=null}function open(inp){current=inp;var v=inp.value||'12:00',q=v.split(':'),hh=parseInt(q[0],10)||12,mm=q[1]||'00',ispm=hh>=12;var dh=hh%12||12;h.value=String(dh).padStart(2,'0');ap.value=ispm?'PM':'AM';mins.querySelectorAll('button').forEach(function(x){x.classList.toggle('active',x.dataset.min===mm)});p.classList.add('show');back.classList.add('show')}function setTime(){if(!current)return;var hh=parseInt(h.value,10)||12;if(ap.value==='PM'&&hh<12)hh+=12;if(ap.value==='AM'&&hh===12)hh=0;var mm=(mins.querySelector('button.active')||{}).dataset?.min||'00';current.value=String(hh).padStart(2,'0')+':'+mm;current.dispatchEvent(new Event('input',{bubbles:true}));current.dispatchEvent(new Event('change',{bubbles:true}));close()}document.addEventListener('click',function(e){var inp=e.target.closest&&e.target.closest('#dailyNamazCard input[type="time"]');if(inp){e.preventDefault();e.stopPropagation();open(inp)}},true);back.onclick=close;document.getElementById('v216Cancel').onclick=close;document.getElementById('v216Ok').onclick=setTime;})();</script>
 </body>
 <script id="v27-today-override">window.todayGo=function(){if(window.v27GoToday)window.v27GoToday();};</script>
 
