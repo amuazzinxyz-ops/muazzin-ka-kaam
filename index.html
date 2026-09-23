@@ -1948,23 +1948,7 @@ paintAdj();setInterval(function(){var t=indiaToday();if(key(t)!==key(now)){now=t
   #v11NextPrayerPanel .v11-tools-grid{transform:translateY(-4px)!important;}
 }
 </style>
-<section id="v11NextPrayerPanel" aria-label="Next prayer and today's tools">
-  <div class="v11-next-head">🕌 अगली नमाज़ — सिर्फ अगला वक्त</div>
-  <div class="v11-next-body">
-    <div class="v11-next-main">
-      <div class="v11-next-name" id="v11NextName">—</div>
-      <div class="v11-next-time" id="v11NextTime">—</div>
-      <div class="v11-next-count" id="v11NextCountdown">—</div>
-      <div class="v11-next-date" id="v11NextDate">—</div>
-    </div>
-    <div class="v11-tools-grid">
-      <button type="button" class="v11-tool-btn" id="v11TodayBtn"><span>🕌</span><small>Aaj ki Namaz</small></button>
-      <button type="button" class="v11-tool-btn" id="v11DayBtn"><span>📋</span><small>Pura Din</small></button>
-      <button type="button" class="v11-tool-btn" id="v11ShareBtn"><span>📤</span><small>Share Today</small></button>
-    </div>
-    <div id="v11DayView" aria-live="polite"></div>
-  </div>
-</section>
+
 <script id="v11-next-prayer-tools-js">
 (function(){
 'use strict';
@@ -2339,6 +2323,331 @@ if(document.readyState==='loading')window.addEventListener('DOMContentLoaded',bi
   });
   window.addEventListener('appinstalled',function(){deferred=null;btn.classList.remove('show');hintText('✓ Muazzin Ka Kaam Home Screen पर जुड़ गया।');});
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(refresh,400);});else setTimeout(refresh,400);
+})();
+</script>
+<style id="v184-language-style">
+#v184LanguageBox{margin:10px 8px 8px;padding:10px 12px;border:1px solid #d8e1ef;border-radius:12px;background:#f7faff;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+#v184LanguageBox .v183-lang-title{font-weight:900;color:#173f91;margin-bottom:6px}
+#v184LanguageSelect{width:100%;box-sizing:border-box;padding:9px 10px;border:1px solid #b8c7df;border-radius:9px;background:#fff;font-weight:800;color:#173f91;font-size:14px}
+#v184LanguageNote{font-size:11px;margin-top:5px;color:#5d6673;line-height:1.35}
+</style>
+<section id="v184LanguageBox" aria-label="Language selection">
+  <div class="v183-lang-title">🌐 Language / Zaban</div>
+  <select id="v184LanguageSelect" aria-label="Select language">
+    <option value="roman">Roman English</option>
+    <option value="english">English</option>
+    <option value="urdu">Urdu</option>
+  </select>
+  <div id="v184LanguageNote">Language select karte hi app ke visible labels aur Help text badlenge.</div>
+</section>
+<script id="v184-language-system">
+(function(){
+'use strict';
+var KEY='muazzin_language_v184';
+window.__MUAZZIN_I18N_D={
+ roman:{
+  '⬆ Top':'⬆ Top','📅 Today':'📅 Today','⬇ Bottom':'⬇ Bottom','📅 English Date':'📅 English Date','🌙 Urdu Hijri Date':'🌙 Urdu Hijri Date','Daily Namaz Time Table':'Daily Namaz Time Table','Aukat':'Aukat','Azaan':'Azaan','Jamaat':'Jamaat','Auto Waqt':'Auto Waqt','📅 Month Jump':'📅 Month Jump','Dark':'Dark','🖨️ Print':'🖨️ Print','Today':'Today','🔔 NAMAZ REMINDER':'🔔 NAMAZ REMINDER','▶ Test Reminder':'▶ Test Reminder','🛡️ Backup & Restore':'🛡️ Backup & Restore','📦 Backup':'📦 Backup','♻️ Restore':'♻️ Restore','↺ Reset':'↺ Reset','🌙 HIJRI DATE':'🌙 HIJRI DATE','🌙 AAJ KI HIJRI DATE':'🌙 AAJ KI HIJRI DATE','🔔 Namaz Reminder':'🔔 Namaz Reminder','🌙 Hijri Date Reminder':'🌙 Hijri Date Reminder','🌙 Hijri Reminder':'🌙 Hijri Reminder','💾 Save':'💾 Save','▶ Test':'▶ Test','🎵 APNI PASAND KI SOUND':'🎵 APNI PASAND KI SOUND','📱 Phone Ringtone / Audio':'📱 Phone Ringtone / Audio','🔴 Record':'🔴 Record','⏹ Stop':'⏹ Stop','✕ Clear':'✕ Clear','🌇 AAJ KA SUNSET / MAGHRIB START':'🌇 AAJ KA SUNSET / MAGHRIB START','🕐 LIVE TIME':'🕐 LIVE TIME','🕌 ABHI / AGLI NAMAZ':'🕌 ABHI / AGLI NAMAZ','📤 Share':'📤 Share','📅 AAJ KI TAREEKH':'📅 AAJ KI TAREEKH','📍 Aaj par Jayein':'📍 Aaj par Jayein','⬆ Upar':'⬆ Upar','🕌 Aaj ka Namaz Time':'🕌 Aaj ka Namaz Time','📅 Aaj':'📅 Aaj','📅 Calendar & Date':'📅 Calendar & Date','📍 Today':'📍 Today','🔎 Go':'🔎 Go','☆ Favorite Date':'☆ Favorite Date','📋 Copy Date + Namaz':'📋 Copy Date + Namaz','❓ Madad / Help — App kaise istemal karein':'❓ Madad / Help — App kaise istemal karein','🕌 Agli Namaz:':'🕌 Agli Namaz:','📋 Pura Din:':'📋 Pura Din:','📤 Share Today:':'📤 Share Today:','💾 Backup:':'💾 Backup:','📲 Home Screen:':'📲 Home Screen:','📞 Contact:':'📞 Contact:','Aaj ki Namaz':'Aaj ki Namaz','Pura Din':'Pura Din','Share Today':'Share Today','🌐 Language / Zaban':'🌐 Language / Zaban'
+ },
+ english:{
+  '⬆ Top':'⬆ Top','📅 Today':'📅 Today','⬇ Bottom':'⬇ Bottom','📅 English Date':'📅 English Date','🌙 Urdu Hijri Date':'🌙 Hijri Date','Daily Namaz Time Table':'Daily Prayer Timetable','Aukat':'Time','Azaan':'Azaan','Jamaat':'Jamaat','Auto Waqt':'Auto Time','📅 Month Jump':'📅 Month Jump','Dark':'Dark','🖨️ Print':'🖨️ Print','Today':'Today','🔔 NAMAZ REMINDER':'🔔 PRAYER REMINDER','▶ Test Reminder':'▶ Test Reminder','🛡️ Backup & Restore':'🛡️ Backup & Restore','📦 Backup':'📦 Backup','♻️ Restore':'♻️ Restore','↺ Reset':'↺ Reset','🌙 HIJRI DATE':'🌙 HIJRI DATE','🌙 AAJ KI HIJRI DATE':'🌙 TODAY’S HIJRI DATE','🔔 Namaz Reminder':'🔔 Prayer Reminder','🌙 Hijri Date Reminder':'🌙 Hijri Date Reminder','🌙 Hijri Reminder':'🌙 Hijri Reminder','💾 Save':'💾 Save','▶ Test':'▶ Test','🎵 APNI PASAND KI SOUND':'🎵 CHOOSE YOUR SOUND','📱 Phone Ringtone / Audio':'📱 Phone Ringtone / Audio','🔴 Record':'🔴 Record','⏹ Stop':'⏹ Stop','✕ Clear':'✕ Clear','🌇 AAJ KA SUNSET / MAGHRIB START':'🌇 TODAY’S SUNSET / MAGHRIB START','🕐 LIVE TIME':'🕐 LIVE TIME','🕌 ABHI / AGLI NAMAZ':'🕌 CURRENT / NEXT PRAYER','📤 Share':'📤 Share','📅 AAJ KI TAREEKH':'📅 TODAY’S DATE','📍 Aaj par Jayein':'📍 Go to Today','⬆ Upar':'⬆ Up','🕌 Aaj ka Namaz Time':'🕌 Today’s Prayer Times','📅 Aaj':'📅 Today','📅 Calendar & Date':'📅 Calendar & Date','📍 Today':'📍 Today','🔎 Go':'🔎 Go','☆ Favorite Date':'☆ Favorite Date','📋 Copy Date + Namaz':'📋 Copy Date + Prayer Times','❓ Madad / Help — App kaise istemal karein':'❓ Help — How to use the app','🕌 Agli Namaz:':'🕌 Current / Next Prayer:','📋 Pura Din:':'📋 Full Day:','📤 Share Today:':'📤 Share Today:','💾 Backup:':'💾 Backup:','📲 Home Screen:':'📲 Home Screen:','📞 Contact:':'📞 Contact:','Aaj ki Namaz':'Today’s Prayer','Pura Din':'Full Day','Share Today':'Share Today','🌐 Language / Zaban':'🌐 Language'
+ },
+ hindi:{
+  '⬆ Top':'⬆ ऊपर','📅 Today':'📅 आज','⬇ Bottom':'⬇ नीचे','📅 English Date':'📅 अंग्रेज़ी तारीख','🌙 Urdu Hijri Date':'🌙 हिजरी तारीख','Daily Namaz Time Table':'नमाज़ का दैनिक समय','Aukat':'वक़्त','Azaan':'अज़ान','Jamaat':'जमाअत','Auto Waqt':'ऑटो वक़्त','📅 Month Jump':'📅 महीना चुनें','Dark':'डार्क','🖨️ Print':'🖨️ प्रिंट','Today':'आज','🔔 NAMAZ REMINDER':'🔔 नमाज़ रिमाइंडर','▶ Test Reminder':'▶ रिमाइंडर टेस्ट','🛡️ Backup & Restore':'🛡️ बैकअप और रिस्टोर','📦 Backup':'📦 बैकअप','♻️ Restore':'♻️ रिस्टोर','↺ Reset':'↺ रीसेट','🌙 HIJRI DATE':'🌙 हिजरी तारीख','🌙 AAJ KI HIJRI DATE':'🌙 आज की हिजरी तारीख','🔔 Namaz Reminder':'🔔 नमाज़ रिमाइंडर','🌙 Hijri Date Reminder':'🌙 हिजरी तारीख रिमाइंडर','🌙 Hijri Reminder':'🌙 हिजरी रिमाइंडर','💾 Save':'💾 सेव','▶ Test':'▶ टेस्ट','🎵 APNI PASAND KI SOUND':'🎵 अपनी पसंद की आवाज़','📱 Phone Ringtone / Audio':'📱 फोन रिंगटोन / ऑडियो','🔴 Record':'🔴 रिकॉर्ड','⏹ Stop':'⏹ बंद करें','✕ Clear':'✕ साफ़ करें','🌇 AAJ KA SUNSET / MAGHRIB START':'🌇 आज का सूर्यास्त / मग़रिब शुरू','🕐 LIVE TIME':'🕐 लाइव समय','🕌 ABHI / AGLI NAMAZ':'🕌 अभी / अगली नमाज़','📤 Share':'📤 शेयर','📅 AAJ KI TAREEKH':'📅 आज की तारीख','📍 Aaj par Jayein':'📍 आज पर जाएँ','⬆ Upar':'⬆ ऊपर','🕌 Aaj ka Namaz Time':'🕌 आज का नमाज़ समय','📅 Aaj':'📅 आज','📅 Calendar & Date':'📅 कैलेंडर और तारीख','📍 Today':'📍 आज','🔎 Go':'🔎 जाएँ','☆ Favorite Date':'☆ पसंदीदा तारीख','📋 Copy Date + Namaz':'📋 तारीख + नमाज़ समय कॉपी करें','❓ Madad / Help — App kaise istemal karein':'❓ मदद / हेल्प — ऐप कैसे इस्तेमाल करें','🕌 Agli Namaz:':'🕌 अगली नमाज़:','📋 Pura Din:':'📋 पूरा दिन:','📤 Share Today:':'📤 आज शेयर करें:','💾 Backup:':'💾 बैकअप:','📲 Home Screen:':'📲 होम स्क्रीन:','📞 Contact:':'📞 संपर्क:','Aaj ki Namaz':'आज की नमाज़','Pura Din':'पूरा दिन','Share Today':'आज शेयर करें','🌐 Language / Zaban':'🌐 भाषा / ज़बान'
+ },
+ urdu:{
+  '⬆ Top':'⬆ اوپر','📅 Today':'📅 آج','⬇ Bottom':'⬇ نیچے','📅 English Date':'📅 انگریزی تاریخ','🌙 Urdu Hijri Date':'🌙 ہجری تاریخ','Daily Namaz Time Table':'روزانہ نماز کا جدول','Aukat':'اوقات','Azaan':'اذان','Jamaat':'جماعت','Auto Waqt':'خودکار وقت','📅 Month Jump':'📅 مہینہ منتخب کریں','Dark':'ڈارک','🖨️ Print':'🖨️ پرنٹ','Today':'آج','🔔 NAMAZ REMINDER':'🔔 نماز ریمائنڈر','▶ Test Reminder':'▶ ریمائنڈر ٹیسٹ','🛡️ Backup & Restore':'🛡️ بیک اپ اور بحالی','📦 Backup':'📦 بیک اپ','♻️ Restore':'♻️ بحال کریں','↺ Reset':'↺ ری سیٹ','🌙 HIJRI DATE':'🌙 ہجری تاریخ','🌙 AAJ KI HIJRI DATE':'🌙 آج کی ہجری تاریخ','🔔 Namaz Reminder':'🔔 نماز ریمائنڈر','🌙 Hijri Date Reminder':'🌙 ہجری تاریخ ریمائنڈر','🌙 Hijri Reminder':'🌙 ہجری ریمائنڈر','💾 Save':'💾 محفوظ کریں','▶ Test':'▶ ٹیسٹ','🎵 APNI PASAND KI SOUND':'🎵 اپنی پسند کی آواز','📱 Phone Ringtone / Audio':'📱 فون رنگ ٹون / آڈیو','🔴 Record':'🔴 ریکارڈ','⏹ Stop':'⏹ روکیں','✕ Clear':'✕ صاف کریں','🌇 AAJ KA SUNSET / MAGHRIB START':'🌇 آج کا غروبِ آفتاب / مغرب شروع','🕐 LIVE TIME':'🕐 لائیو وقت','🕌 ABHI / AGLI NAMAZ':'🕌 ابھی / اگلی نماز','📤 Share':'📤 شیئر','📅 AAJ KI TAREEKH':'📅 آج کی تاریخ','📍 Aaj par Jayein':'📍 آج پر جائیں','⬆ Upar':'⬆ اوپر','🕌 Aaj ka Namaz Time':'🕌 آج کے نماز کے اوقات','📅 Aaj':'📅 آج','📅 Calendar & Date':'📅 کیلنڈر اور تاریخ','📍 Today':'📍 آج','🔎 Go':'🔎 جائیں','☆ Favorite Date':'☆ پسندیدہ تاریخ','📋 Copy Date + Namaz':'📋 تاریخ + نماز کے اوقات کاپی کریں','❓ Madad / Help — App kaise istemal karein':'❓ مدد / ہیلپ — ایپ کیسے استعمال کریں','🕌 Agli Namaz:':'🕌 اگلی نماز:','📋 Pura Din:':'📋 پورا دن:','📤 Share Today:':'📤 آج شیئر کریں:','💾 Backup:':'💾 بیک اپ:','📲 Home Screen:':'📲 ہوم اسکرین:','📞 Contact:':'📞 رابطہ:','Aaj ki Namaz':'آج کی نماز','Pura Din':'پورا دن','Share Today':'آج شیئر کریں','🌐 Language / Zaban':'🌐 زبان / Language'
+ }
+};
+/* V184: translate Roman-English UI text as well, including dynamic Hijri/Help/status messages. */
+Object.assign(D.roman,{
+ 'Pehle Reminder chunen, phir Test karein.':'Pehle Reminder chunen, phir Test karein.',
+ 'Do tarah ki safety: poora HTML project aur Namaz/Azaan settings.':'Do tarah ki safety: poora HTML project aur Namaz/Azaan settings.',
+ 'Backup abhi nahi banaya gaya':window.muazzinTranslate('Backup abhi nahi banaya gaya'),
+ 'Backup pehchan: checking…':'Backup pehchan: checking…',
+ 'Backup Health: checking…':window.muazzinTranslate('Backup Health: checking…'),
+ '🔎 Backup Health: अभी backup नहीं बनाया गया':'🔎 Backup Health: abhi backup nahi banaya gaya',
+ '🔔 REMINDER KI RINGTONE CHUNE':'🔔 REMINDER KI RINGTONE CHUNE',
+ 'Pehle upar se Namaz Reminder ya Hijri Date Reminder chunen.':'Pehle upar se Namaz Reminder ya Hijri Date Reminder chunen.',
+ 'Phone se apni audio file choose karein ya apni awaaz record karein.':'Phone se apni audio file choose karein ya apni awaaz record karein.',
+ 'Sun Set ka waqt sabse upar saaf dikhaya gaya hai.':'Sun Set ka waqt sabse upar saaf dikhaya gaya hai.',
+ 'Aapki Manual Hijri Date se judi hui':'Aapki Manual Hijri Date se judi hui',
+ 'Aaj ki tareekh ko timetable mein automatically highlight kiya gaya hai.':'Aaj ki tareekh ko timetable mein automatically highlight kiya gaya hai.',
+ 'se zaroori tareekh Favorite kar sakte hain.':'se zaroori tareekh Favorite kar sakte hain.',
+ 'Tareekh par tap karein.':'Tareekh par tap karein.',
+ '📲 Home Screen Shortcut':'📲 Home Screen Shortcut'
+});
+Object.assign(D.english,{
+ 'Chand ke hisaab se 1 din aage/peeche karna ho to Day badalkar Save karein.':'To adjust the Hijri date by one day for the local moon sighting, change the Day and save.',
+ 'Hijri Date save ho gayi. Aaj ki English date par yehi Hijri date rahegi; agle English din par Hijri date 1 din aage hogi.':'Hijri date saved. This date stays for today’s English date and moves forward by one day on the next English day.',
+ 'Hijri Day (1-30) aur Year bharen':'Enter Hijri Day (1-30) and Year.',
+ 'Sound save nahi ho saka.':'Sound could not be saved.',
+ 'Test dabayein':'Tap Test'
+});
+Object.assign(D.hindi,{
+ 'Chand ke hisaab se 1 din aage/peeche karna ho to Day badalkar Save karein.':'चाँद के हिसाब से हिजरी तारीख 1 दिन आगे या पीछे करने के लिए Day बदलकर Save करें।',
+ 'Hijri Date save ho gayi. Aaj ki English date par yehi Hijri date rahegi; agle English din par Hijri date 1 din aage hogi.':'हिजरी तारीख सेव हो गई। आज की अंग्रेज़ी तारीख पर यही हिजरी तारीख रहेगी और अगले अंग्रेज़ी दिन पर 1 दिन आगे होगी।',
+ 'Hijri Day (1-30) aur Year bharen':'हिजरी दिन (1-30) और साल भरें।',
+ 'Sound save nahi ho saka.':'आवाज़ सेव नहीं हो सकी।',
+ 'Test dabayein':'टेस्ट दबाएँ'
+});
+Object.assign(D.urdu,{
+ 'Chand ke hisaab se 1 din aage/peeche karna ho to Day badalkar Save karein.':'مقامی چاند کی تاریخ کے مطابق ایک دن آگے یا پیچھے کرنے کے لیے Day تبدیل کرکے Save کریں۔',
+ 'Hijri Date save ho gayi. Aaj ki English date par yehi Hijri date rahegi; agle English din par Hijri date 1 din aage hogi.':'ہجری تاریخ محفوظ ہوگئی۔ آج کی انگریزی تاریخ پر یہی ہجری تاریخ رہے گی اور اگلے انگریزی دن ایک دن آگے ہوگی۔',
+ 'Hijri Day (1-30) aur Year bharen':'ہجری دن (1-30) اور سال درج کریں۔',
+ 'Sound save nahi ho saka.':'آواز محفوظ نہیں ہوسکی۔',
+ 'Test dabayein':'ٹیسٹ دبائیں'
+});
+/* V185: complete visible Roman-English UI translation coverage for the language selector. */
+Object.assign(D.english,{
+ 'Do tarah ki safety: poora HTML project aur Namaz/Azaan settings.':'Two safety backups: the complete HTML project and Namaz/Azaan settings.',
+ '🕌 Namaz & Azaan Backup':'🕌 Prayer & Azaan Backup',
+ '🕌 Namaz & Azaan Restore':'🕌 Prayer & Azaan Restore',
+ '🔔 REMINDER KI RINGTONE CHUNE':'🔔 CHOOSE REMINDER RINGTONE',
+ 'Pehle upar se Namaz Reminder ya Hijri Date Reminder chunen.':'First choose Prayer Reminder or Hijri Date Reminder above.',
+ 'Phone se apni audio file choose karein ya apni awaaz record karein.':'Choose an audio file from your phone or record your own voice.',
+ 'Sun Set ka waqt sabse upar saaf dikhaya gaya hai.':'Sunset time is clearly shown at the top.',
+ 'Aapki Manual Hijri Date se judi hui':'Linked to your Manual Hijri Date',
+ 'Aaj ki tareekh ko timetable mein automatically highlight kiya gaya hai.':'Today’s date is automatically highlighted in the timetable.',
+ 'LAST TIME OF SEHRI & START OF NAMAZ E FAJR. i.e. 10 MINUTES BEFORE THIS TIME SEHRI SHOULD BE FINISHED & 5 MINUTES AFTER THIS TIME AZAAN E FAJR SHOULD BE CALLED':'LAST TIME OF SEHRI & START OF FAJR PRAYER. SEHRI SHOULD FINISH 10 MINUTES BEFORE THIS TIME AND FAJR AZAAN SHOULD BE CALLED 5 MINUTES AFTER THIS TIME',
+ 'LAST TIME OF NAMAZ E FAJR. ANY NAMAZ OR QAZA OF FAJR SHOULD BE OFFERED 20 MINUTES AFTER THIS TIME & ISHRAQ STARTS FROM HERE.':'LAST TIME OF FAJR PRAYER. ANY FAJR PRAYER OR QAZA SHOULD BE OFFERED 20 MINUTES AFTER THIS TIME & ISHRAQ STARTS FROM HERE.',
+ 'THE TIME BETWEEN THIS TWO INDICATES ZAVAL IN WHICH OFFERING OF NAMAZ IS MAKROOH & AFTER ZAVAL THE TIME FOR ZOHAR STARTS':'THE TIME BETWEEN THESE TWO INDICATES ZAVAL, DURING WHICH OFFERING PRAYER IS MAKROOH; AFTER ZAVAL, ZOHAR TIME STARTS',
+ 'English Date':'English Date',
+ '🌙 Urdu Hijri Date':'🌙 Hijri Date',
+ 'Aaj ki tareekh apne-aap':'Today’s date is automatic',
+ '🌙 Hijri Date Adjustment:':'🌙 Hijri Date Adjustment:',
+ '−1 din':'−1 day','+1 din':'+1 day',
+ 'Chand ki sthaniya tareekh ke anusaar Calendar ko 1 din aage ya peeche kar sakte hain.':'You can move the Calendar one day forward or backward according to the local moon sighting.',
+ 'Tareekh par tap karein.':'Tap a date.',
+ 'Language select karte hi app ke visible labels aur Help text badlenge.':'Changing the language updates the app’s visible labels and Help text.',
+ '📅 Aaj ki tareekh:':'📅 Today’s date:',
+ 'Aaj ke din aur mahine ki jankari dekhne ke liye upar/Aaj wale hisse ka istemal karein.':'Use the top/Today section to see information for today’s day and month.',
+ 'Upar LIVE TIME mein Abhi / Agli Namaz ka waqt aur countdown dikhaya jata hai.':'LIVE TIME above shows the current/next prayer time and countdown.',
+ '📋 Pura Din:':'📋 Full Day:',
+ '“Pura Din” dabakar Aaj ke available timetable samay ek saath dekh sakte hain.':'Tap “Full Day” to see today’s available timetable times together.',
+ 'Aaj ke Azaan, Jamaat aur timetable samay ko WhatsApp ya doosre sharing app mein bhej sakte hain.':'You can share today’s Azaan, Jamaat and timetable times through WhatsApp or another sharing app.',
+ 'Manual Namaz/Azaan/Jamaat settings ka backup banakar baad mein restore kiya ja sakta hai.':'Manual Prayer/Azaan/Jamaat settings can be backed up and restored later.',
+ 'Browser ke menu ⋮ se “Add to Home screen” ya “Install app” chunkar ise phone ki Home Screen par laga sakte hain.':'From the browser menu ⋮, choose “Add to Home screen” or “Install app” to add it to your phone’s Home Screen.',
+ 'Gmail, WhatsApp aur Call ki official contact details Play Store release se pehle yahan jodi ja sakti hain.':'Official Gmail, WhatsApp and Call contact details can be added here before the Play Store release.',
+ '📲 Home Screen par lagane ke liye upar Browser ⋮ mein “Add to Home screen / Install app” chunen':'To add it to Home Screen, choose “Add to Home screen / Install app” from the browser menu ⋮ above.',
+ 'Aaj ki Namaz':'Today’s Prayer','Pura Din':'Full Day','Share Today':'Share Today',
+ 'Chand ke hisaab se 1 din aage/peeche karna ho to Day badalkar Save karein.':'To adjust the Hijri date by one day, change the Day and save.',
+ 'Hijri Date save ho gayi. Aaj ki English date par yehi Hijri date rahegi; agle English din par Hijri date 1 din aage hogi.':'Hijri date saved. It stays for today’s English date and moves forward by one day on the next English day.',
+ 'Hijri Day (1-30) aur Year bharen':'Enter Hijri Day (1-30) and Year.',
+ 'Sound save nahi ho saka.':'Sound could not be saved.','Test dabayein':'Tap Test'
+});
+Object.assign(D.hindi,{
+ 'Do tarah ki safety: poora HTML project aur Namaz/Azaan settings.':'दो तरह की सुरक्षा: पूरा HTML प्रोजेक्ट और नमाज़/अज़ान सेटिंग्स।',
+ '🕌 Namaz & Azaan Backup':'🕌 नमाज़ और अज़ान बैकअप','🕌 Namaz & Azaan Restore':'🕌 नमाज़ और अज़ान रिस्टोर',
+ '🔔 REMINDER KI RINGTONE CHUNE':'🔔 रिमाइंडर की रिंगटोन चुनें','Pehle upar se Namaz Reminder ya Hijri Date Reminder chunen.':'ऊपर से नमाज़ रिमाइंडर या हिजरी तारीख रिमाइंडर चुनें।',
+ 'Phone se apni audio file choose karein ya apni awaaz record karein.':'फोन से अपनी ऑडियो फ़ाइल चुनें या अपनी आवाज़ रिकॉर्ड करें।','Sun Set ka waqt sabse upar saaf dikhaya gaya hai.':'सूर्यास्त का समय सबसे ऊपर साफ़ दिखाया गया है।','Aapki Manual Hijri Date se judi hui':'आपकी मैनुअल हिजरी तारीख से जुड़ी हुई',
+ 'Aaj ki tareekh ko timetable mein automatically highlight kiya gaya hai.':'आज की तारीख टाइमटेबल में अपने-आप हाईलाइट की गई है।',
+ 'English Date':'अंग्रेज़ी तारीख','Aaj ki tareekh apne-aap':'आज की तारीख अपने-आप','🌙 Hijri Date Adjustment:':'🌙 हिजरी तारीख में बदलाव:', '−1 din':'−1 दिन','+1 din':'+1 दिन',
+ 'Chand ki sthaniya tareekh ke anusaar Calendar ko 1 din aage ya peeche kar sakte hain.':'स्थानीय चाँद की तारीख के अनुसार कैलेंडर को 1 दिन आगे या पीछे कर सकते हैं।','Tareekh par tap karein.':'तारीख पर टैप करें।',
+ 'Language select karte hi app ke visible labels aur Help text badlenge.':'भाषा चुनते ही ऐप के दिखाई देने वाले लेबल और हेल्प टेक्स्ट बदलेंगे।',
+ '📅 Aaj ki tareekh:':'📅 आज की तारीख:','Aaj ke din aur mahine ki jankari dekhne ke liye upar/Aaj wale hisse ka istemal karein.':'आज के दिन और महीने की जानकारी देखने के लिए ऊपर/आज वाले हिस्से का इस्तेमाल करें।','Upar LIVE TIME mein Abhi / Agli Namaz ka waqt aur countdown dikhaya jata hai.':'ऊपर LIVE TIME में अभी / अगली नमाज़ का समय और काउंटडाउन दिखाया जाता है।',
+ '“Pura Din” dabakar Aaj ke available timetable samay ek saath dekh sakte hain.':'“पूरा दिन” दबाकर आज के उपलब्ध टाइमटेबल समय एक साथ देख सकते हैं।','Aaj ke Azaan, Jamaat aur timetable samay ko WhatsApp ya doosre sharing app mein bhej sakte hain.':'आज के अज़ान, जमाअत और टाइमटेबल समय WhatsApp या दूसरे शेयरिंग ऐप में भेज सकते हैं।','Manual Namaz/Azaan/Jamaat settings ka backup banakar baad mein restore kiya ja sakta hai.':'मैनुअल नमाज़/अज़ान/जमाअत सेटिंग्स का बैकअप बनाकर बाद में रिस्टोर किया जा सकता है।','Gmail, WhatsApp aur Call ki official contact details Play Store release se pehle yahan jodi ja sakti hain.':'Gmail, WhatsApp और Call की आधिकारिक संपर्क जानकारी Play Store रिलीज़ से पहले यहाँ जोड़ी जा सकती है।',
+ 'Aaj ki Namaz':'आज की नमाज़','Pura Din':'पूरा दिन','Share Today':'आज शेयर करें','Chand ke hisaab se 1 din aage/peeche karna ho to Day badalkar Save karein.':'चाँद के हिसाब से हिजरी तारीख 1 दिन आगे या पीछे करने के लिए Day बदलकर Save करें।','Hijri Day (1-30) aur Year bharen':'हिजरी दिन (1-30) और साल भरें।','Sound save nahi ho saka.':'आवाज़ सेव नहीं हो सकी।','Test dabayein':'टेस्ट दबाएँ'
+});
+Object.assign(D.urdu,{
+ 'Do tarah ki safety: poora HTML project aur Namaz/Azaan settings.':'دو طرح کی حفاظت: مکمل HTML پروجیکٹ اور نماز/اذان سیٹنگز۔','🕌 Namaz & Azaan Backup':'🕌 نماز اور اذان بیک اپ','🕌 Namaz & Azaan Restore':'🕌 نماز اور اذان بحال کریں',
+ '🔔 REMINDER KI RINGTONE CHUNE':'🔔 ریمائنڈر کی رنگ ٹون منتخب کریں','Pehle upar se Namaz Reminder ya Hijri Date Reminder chunen.':'اوپر سے نماز ریمائنڈر یا ہجری تاریخ ریمائنڈر منتخب کریں۔','Phone se apni audio file choose karein ya apni awaaz record karein.':'فون سے اپنی آڈیو فائل منتخب کریں یا اپنی آواز ریکارڈ کریں۔','Sun Set ka waqt sabse upar saaf dikhaya gaya hai.':'غروبِ آفتاب کا وقت سب سے اوپر واضح دکھایا گیا ہے۔','Aapki Manual Hijri Date se judi hui':'آپ کی دستی ہجری تاریخ سے منسلک',
+ 'Aaj ki tareekh ko timetable mein automatically highlight kiya gaya hai.':'آج کی تاریخ ٹائم ٹیبل میں خودکار طور پر نمایاں کی گئی ہے۔','English Date':'انگریزی تاریخ','Aaj ki tareekh apne-aap':'آج کی تاریخ خودکار','🌙 Hijri Date Adjustment:':'🌙 ہجری تاریخ میں تبدیلی:','−1 din':'−1 دن','+1 din':'+1 دن',
+ 'Chand ki sthaniya tareekh ke anusaar Calendar ko 1 din aage ya peeche kar sakte hain.':'مقامی چاند کی تاریخ کے مطابق کیلنڈر کو ایک دن آگے یا پیچھے کرسکتے ہیں۔','Tareekh par tap karein.':'تاریخ پر ٹیپ کریں۔','Language select karte hi app ke visible labels aur Help text badlenge.':'زبان منتخب کرتے ہی ایپ کے نمایاں لیبل اور ہیلپ ٹیکسٹ بدل جائیں گے۔',
+ '📅 Aaj ki tareekh:':'📅 آج کی تاریخ:','Aaj ke din aur mahine ki jankari dekhne ke liye upar/Aaj wale hisse ka istemal karein.':'آج کے دن اور مہینے کی معلومات دیکھنے کے لیے اوپر/آج والے حصے کو استعمال کریں۔','Upar LIVE TIME mein Abhi / Agli Namaz ka waqt aur countdown dikhaya jata hai.':'اوپر LIVE TIME میں ابھی / اگلی نماز کا وقت اور کاؤنٹ ڈاؤن دکھایا جاتا ہے۔',
+ '“Pura Din” dabakar Aaj ke available timetable samay ek saath dekh sakte hain.':'“پورا دن” دباکر آج کے دستیاب ٹائم ٹیبل اوقات ایک ساتھ دیکھ سکتے ہیں۔','Aaj ke Azaan, Jamaat aur timetable samay ko WhatsApp ya doosre sharing app mein bhej sakte hain.':'آج کے اذان، جماعت اور ٹائم ٹیبل اوقات WhatsApp یا کسی دوسرے شیئرنگ ایپ میں بھیج سکتے ہیں۔','Manual Namaz/Azaan/Jamaat settings ka backup banakar baad mein restore kiya ja sakta hai.':'دستی نماز/اذان/جماعت سیٹنگز کا بیک اپ بناکر بعد میں بحال کیا جاسکتا ہے۔','Gmail, WhatsApp aur Call ki official contact details Play Store release se pehle yahan jodi ja sakti hain.':'Gmail، WhatsApp اور Call کی سرکاری رابطہ معلومات Play Store ریلیز سے پہلے یہاں شامل کی جاسکتی ہیں۔',
+ 'Aaj ki Namaz':'آج کی نماز','Pura Din':'پورا دن','Share Today':'آج شیئر کریں','Chand ke hisaab se 1 din aage/peeche karna ho to Day badalkar Save karein.':'مقامی چاند کے حساب سے ہجری تاریخ ایک دن آگے یا پیچھے کرنے کے لیے Day تبدیل کرکے Save کریں۔','Hijri Day (1-30) aur Year bharen':'ہجری دن (1-30) اور سال درج کریں۔','Sound save nahi ho saka.':'آواز محفوظ نہیں ہوسکی۔','Test dabayein':'ٹیسٹ دبائیں'
+});
+/* V186: complete the remaining visible Roman-English strings and dynamic Backup/Restore messages. V187: broaden all visible Roman-English labels/help text for English mode. */
+Object.assign(D.english,{
+ 'Pehle Reminder chunen, phir Test karein.':'First choose a Reminder, then tap Test.',
+ 'Do tarah ki safety: poora HTML project aur Namaz/Azaan settings.':'Two types of backup: the complete HTML project and Prayer/Azaan settings.',
+ 'Backup abhi nahi banaya gaya':'No backup created yet',
+ 'Backup pehchan: checking…':'Backup identification: checking…',
+ 'Backup Health: checking…':window.muazzinTranslate('Backup Health: checking…'),
+ '🔎 Backup Health: अभी backup नहीं बनाया गया':'🔎 Backup Health: no backup has been created yet',
+ '🔔 REMINDER KI RINGTONE CHUNE':'🔔 CHOOSE REMINDER RINGTONE',
+ 'Pehle upar se Namaz Reminder ya Hijri Date Reminder chunen.':'First choose Prayer Reminder or Hijri Date Reminder above.',
+ 'Phone se apni audio file choose karein ya apni awaaz record karein.':'Choose an audio file from your phone or record your own voice.',
+ 'Sun Set ka waqt sabse upar saaf dikhaya gaya hai.':'Sunset time is shown clearly at the top.',
+ 'Aapki Manual Hijri Date se judi hui':'Linked to your Manual Hijri Date',
+ 'Aaj ki tareekh ko timetable mein automatically highlight kiya gaya hai.':'Today’s date is automatically highlighted in the timetable.',
+ 'se zaroori tareekh Favorite kar sakte hain.':'to mark an important date as a Favorite.',
+ 'Tareekh par tap karein.':'Tap a date.',
+ '📲 Home Screen Shortcut':'📲 Home Screen Shortcut',
+ 'Full HTML backup cancel ho gaya.':'Full HTML backup was cancelled.',
+ 'Full HTML backup nahi ban saka.':'Full HTML backup could not be created.',
+ 'Namaz & Azaan backup nahi ban saka.':'Prayer & Azaan backup could not be created.',
+ 'Namaz & Azaan backup save ho gaya.':'Prayer & Azaan backup saved.',
+ 'Full HTML backup save ho gaya:':'Full HTML backup saved:',
+ 'Saved manual settings reset ho gayi.':'Saved manual settings were reset.',
+ 'Reset nahi ho saka.':'Reset could not be completed.',
+ 'Restore cancel kar diya gaya.':'Restore was cancelled.',
+ 'Full Restore cancel kar diya gaya.':'Full Restore was cancelled.',
+ 'settings restore ho gayi.':'settings restored.',
+ 'Page reload ho raha hai…':'The page is reloading…',
+ 'Namaz & Azaan backup nahi ban saka.':'Prayer & Azaan backup could not be created.',
+ 'Test sound Abhi available nahi hai.':'Test sound is not available right now.',
+ 'Test Reminder Nahi chal saka.':'Reminder test could not be started.',
+ '⚠️ इस device पर अभी backup नहीं मिला.':'⚠️ No backup was found on this device.',
+ 'Reset करने से पहले Backup बनाना सुरक्षित रहेगा. फिर भी reset करना है?':'It is safer to create a backup before resetting. Reset anyway?',
+ 'Reset से पहले नया backup बनाना सुरक्षित रहेगा. फिर भी reset करना है?':'It is safer to create a new backup before resetting. Reset anyway?',
+ 'Manual Namaz/Azaan/Jamaat timings aur saved settings reset karni hain?':'Reset manual Prayer/Azaan/Jamaat timings and saved settings?',
+ 'यह valid Muazzin Namaz & Azaan backup नहीं है.':'This is not a valid Muazzin Prayer & Azaan backup.',
+ 'यह valid Muazzin Full HTML backup नहीं है.':'This is not a valid Muazzin Full HTML backup.',
+ 'यह Full HTML backup है; original HTML file को भी सुरक्षित रखें.':'This is a Full HTML backup; also keep the original HTML file safe.'
+});
+Object.assign(D.hindi,{
+ 'Pehle Reminder chunen, phir Test karein.':'पहले रिमाइंडर चुनें, फिर टेस्ट करें।',
+ 'Do tarah ki safety: poora HTML project aur Namaz/Azaan settings.':'दो तरह की सुरक्षा: पूरा HTML प्रोजेक्ट और नमाज़/अज़ान सेटिंग्स।',
+ 'Backup abhi nahi banaya gaya':'अभी बैकअप नहीं बनाया गया',
+ 'Backup pehchan: checking…':'बैकअप पहचान: जाँच जारी…',
+ 'Backup Health: checking…':'बैकअप स्थिति: जाँच जारी…',
+ '🔎 Backup Health: अभी backup नहीं बनाया गया':'🔎 बैकअप स्थिति: अभी बैकअप नहीं बनाया गया',
+ '🔔 REMINDER KI RINGTONE CHUNE':'🔔 रिमाइंडर की रिंगटोन चुनें',
+ 'Pehle upar se Namaz Reminder ya Hijri Date Reminder chunen.':'ऊपर से नमाज़ रिमाइंडर या हिजरी तारीख रिमाइंडर चुनें।',
+ 'Phone se apni audio file choose karein ya apni awaaz record karein.':'फोन से अपनी ऑडियो फ़ाइल चुनें या अपनी आवाज़ रिकॉर्ड करें।',
+ 'Sun Set ka waqt sabse upar saaf dikhaya gaya hai.':'सूर्यास्त का समय सबसे ऊपर साफ़ दिखाया गया है।',
+ 'Aapki Manual Hijri Date se judi hui':'आपकी मैनुअल हिजरी तारीख से जुड़ी हुई',
+ 'Aaj ki tareekh ko timetable mein automatically highlight kiya gaya hai.':'आज की तारीख टाइमटेबल में अपने-आप हाईलाइट की गई है।',
+ 'se zaroori tareekh Favorite kar sakte hain.':'से ज़रूरी तारीख को पसंदीदा बना सकते हैं।',
+ 'Tareekh par tap karein.':'तारीख पर टैप करें।',
+ '📲 Home Screen Shortcut':'📲 होम स्क्रीन शॉर्टकट'
+});
+Object.assign(D.urdu,{
+ 'Pehle Reminder chunen, phir Test karein.':'پہلے ریمائنڈر منتخب کریں، پھر ٹیسٹ کریں۔',
+ 'Do tarah ki safety: poora HTML project aur Namaz/Azaan settings.':'دو طرح کی حفاظت: مکمل HTML پروجیکٹ اور نماز/اذان سیٹنگز۔',
+ 'Backup abhi nahi banaya gaya':'ابھی بیک اپ نہیں بنایا گیا',
+ 'Backup pehchan: checking…':'بیک اپ شناخت: جانچ جاری ہے…',
+ 'Backup Health: checking…':'بیک اپ کی حالت: جانچ جاری ہے…',
+ '🔎 Backup Health: अभी backup नहीं बनाया गया':'🔎 بیک اپ کی حالت: ابھی بیک اپ نہیں بنایا گیا',
+ '🔔 REMINDER KI RINGTONE CHUNE':'🔔 ریمائنڈر کی رنگ ٹون منتخب کریں',
+ 'Pehle upar se Namaz Reminder ya Hijri Date Reminder chunen.':'اوپر سے نماز ریمائنڈر یا ہجری تاریخ ریمائنڈر منتخب کریں۔',
+ 'Phone se apni audio file choose karein ya apni awaaz record karein.':'فون سے اپنی آڈیو فائل منتخب کریں یا اپنی آواز ریکارڈ کریں۔',
+ 'Sun Set ka waqt sabse upar saaf dikhaya gaya hai.':'غروبِ آفتاب کا وقت سب سے اوپر واضح دکھایا گیا ہے۔',
+ 'Aapki Manual Hijri Date se judi hui':'آپ کی دستی ہجری تاریخ سے منسلک',
+ 'Aaj ki tareekh ko timetable mein automatically highlight kiya gaya hai.':'آج کی تاریخ ٹائم ٹیبل میں خودکار طور پر نمایاں کی گئی ہے۔',
+ 'se zaroori tareekh Favorite kar sakte hain.':'سے ضروری تاریخ کو پسندیدہ بنا سکتے ہیں۔',
+ 'Tareekh par tap karein.':'تاریخ پر ٹیپ کریں۔',
+ '📲 Home Screen Shortcut':'📲 ہوم اسکرین شارٹ کٹ'
+});
+Object.assign(D.english,{
+ 'Last Backup:':'Last Backup:',
+ 'Backup पहचान: Muazzin Ka Kaam •':'Backup ID: Muazzin Ka Kaam •',
+ 'Backup pehchan: abhi koi backup nahi':'Backup identification: no backup yet',
+ 'Backup file ka naam likhein. Agar naam theek hai to wahi rehne dein:':'Enter a name for the backup file. Leave it as shown if the name is fine:',
+ 'Full HTML backup save ho gaya:':'Full HTML backup saved:',
+ 'Namaz & Azaan backup save ho gaya.':'Prayer & Azaan backup saved.',
+ 'Restore karne par is device ki current saved settings replace ho sakti hain. Continue?':'Restoring may replace the current saved settings on this device. Continue?',
+ 'Backup:':'Backup:', 'Settings:':'Settings:',
+ 'Full backup ki':'Full backup',
+ 'Full backup की':'Full backup'
+});
+Object.assign(D.roman,{'Last Backup:':'Last Backup:','Backup पहचान: Muazzin Ka Kaam •':'Backup pehchan: Muazzin Ka Kaam •','Backup pehchan: abhi koi backup nahi':'Backup pehchan: abhi koi backup nahi','Backup file ka naam likhein. Agar naam theek hai to wahi rehne dein:':'Backup file ka naam likhein. Agar naam theek hai to wahi rehne dein:','Full HTML backup save ho gaya:':'Full HTML backup save ho gaya:','Namaz & Azaan backup save ho gaya.':'Namaz & Azaan backup save ho gaya.','Restore karne par is device ki current saved settings replace ho sakti hain. Continue?':'Restore karne par is device ki current saved settings replace ho sakti hain. Continue?','Backup:':'Backup:','Settings:':'Settings:'});
+/* V187: broaden English translation coverage for remaining visible Roman-English UI and help text. */
+Object.assign(D.english,{
+ '🌙 Urdu Hijri Date':'🌙 Hijri Date','Daily Namaz Time Table':'Daily Prayer Time Table','Aukat':'Prayer','Auto Waqt':'Automatic Time',
+ '🔔 NAMAZ REMINDER':'🔔 PRAYER REMINDER','▶ Test Reminder':'▶ Test Reminder','Pehle Reminder chunen, phir Test karein.':'First choose a reminder, then tap Test.',
+ 'Do tarah ki safety: poora HTML project aur Namaz/Azaan settings.':'Two types of backup: the complete HTML project and Prayer/Azaan settings.',
+ 'Backup abhi nahi banaya gaya':'No backup created yet','🗂️ Backup pehchan: checking…':'🗂️ Backup identification: checking…','📄 Full HTML Backup':'📄 Full HTML Backup',
+ '🔎 Backup Health: checking…':'🔎 Backup Health: checking…','🌙 HIJRI DATE':'🌙 HIJRI DATE','🌙 AAJ KI HIJRI DATE':'🌙 TODAY’S HIJRI DATE','Loading…':'Loading…',
+ '🔔 REMINDER KI RINGTONE CHUNE':'🔔 CHOOSE REMINDER RINGTONE','🌙 Hijri Reminder':'🌙 Hijri Date Reminder','Pehle upar se Namaz Reminder ya Hijri Date Reminder chunen.':'First choose Prayer Reminder or Hijri Date Reminder above.',
+ '🎵 APNI PASAND KI SOUND':'🎵 YOUR PREFERRED SOUND','🔴 Record':'🔴 Record','Phone se apni audio file choose karein ya apni awaaz record karein.':'Choose an audio file from your phone or record your own voice.',
+ '🌇 AAJ KA SUNSET / MAGHRIB START':'🌇 TODAY’S SUNSET / MAGHRIB START','Sun Set ka waqt sabse upar saaf dikhaya gaya hai.':'Sunset time is clearly shown at the top.',
+ '🕌 ABHI / AGLI NAMAZ':'🕌 CURRENT / NEXT PRAYER','📅 AAJ KI TAREEKH':'📅 TODAY’S DATE','Aapki Manual Hijri Date se judi hui':'Linked to your manual Hijri date',
+ 'Aaj ki tareekh ko timetable mein automatically highlight kiya gaya hai.':'Today’s date is automatically highlighted in the timetable.',
+ '📍 Aaj par Jayein':'📍 Go to Today','🕌 Aaj ka Namaz Time':'🕌 Today’s Prayer Time','English Date • Urdu Hijri Date • 12 Months':'English Date • Hijri Date • 12 Months',
+ 'Aaj ki tareekh apne-aap':'Today’s date automatically','🌙 Hijri Date Adjustment:':'🌙 Hijri Date Adjustment:','−1 din':'−1 day','+1 din':'+1 day',
+ 'Chand ki sthaniya tareekh ke anusaar Calendar ko 1 din aage ya peeche kar sakte hain.':'You can adjust the calendar by one day forward or backward according to the local moon sighting.',
+ '📋 Copy Date + Namaz':'📋 Copy Date + Prayer','Tareekh par tap karein.':'Tap the date.','se zaroori tareekh Favorite kar sakte hain.':'to favorite important dates.',
+ '🌐 Language / Zaban':'🌐 Language','Language select karte hi app ke visible labels aur Help text badlenge.':'Changing the language updates the available app labels and Help text.',
+ '❓ Madad / Help — App kaise istemal karein':'❓ Help — How to use the app',
+ '📅 Aaj ki tareekh:':'📅 Today’s date:','Aaj ke din aur mahine ki jankari dekhne ke liye upar/Aaj wale hisse ka istemal karein.':'Use the top/Today section to view information about today’s date and month.',
+ '🕌 Agli Namaz:':'🕌 Next Prayer:','Upar LIVE TIME mein Abhi / Agli Namaz ka waqt aur countdown dikhaya jata hai.':'LIVE TIME at the top shows the current/next prayer time and countdown.',
+ '📋 Pura Din:':'📋 Full Day:','“Pura Din” dabakar Aaj ke available timetable samay ek saath dekh sakte hain.':'Tap “Full Day” to view today’s available timetable times together.',
+ 'Aaj ke Azaan, Jamaat aur timetable samay ko WhatsApp ya doosre sharing app mein bhej sakte hain.':'You can share today’s Azaan, Jamaat and timetable times through WhatsApp or another sharing app.',
+ '💾 Backup:':'💾 Backup:','Manual Namaz/Azaan/Jamaat settings ka backup banakar baad mein restore kiya ja sakta hai.':'Manual Prayer/Azaan/Jamaat settings can be backed up and restored later.',
+ 'Browser ke menu ⋮ se “Add to Home screen” ya “Install app” chunkar ise phone ki Home Screen par laga sakte hain.':'From the browser menu ⋮, choose “Add to Home screen” or “Install app” to add it to your phone Home Screen.',
+ 'Gmail, WhatsApp aur Call ki official contact details Play Store release se pehle yahan jodi ja sakti hain.':'Official Gmail, WhatsApp and Call contact details can be added here before the Play Store release.',
+ 'Aaj ki Namaz':'Today’s Prayer','Pura Din':'Full Day','📲 Home Screen par lagane ke liye upar Browser ⋮ mein “Add to Home screen / Install app” chunen':'To add it to the Home Screen, open Browser ⋮ above and choose “Add to Home screen / Install app”.',
+ 'Sun Set':'Sunset','Sun Rise':'Sunrise','Subeh Sadiq':'Dawn (Subah Sadiq)','Zahve Kubra':'Zawal (Zahve Kubra)','Zaval':'Zawal','Asr Shafee':'Asr Shafi’i','Asar':'Asr','Zuhar':'Zuhr',
+ 'Abhi ka 30-minute waqt':'Current 30-minute period','Agli namaz ka exact waqt':'Exact time of the next prayer','Agli tareekh ka Subeh Sadiq — exact waqt':'Next day Dawn — exact time',
+ 'Full HTML backup save ho gaya:':'Full HTML backup saved:','Namaz & Azaan backup save ho gaya.':'Prayer & Azaan backup saved.',
+ 'Backup pehchan: abhi koi backup nahi':'Backup identification: no backup yet','Backup file ka naam likhein. Agar naam theek hai to wahi rehne dein:':'Enter a name for the backup file. If the name is correct, leave it as it is.',
+ 'Sound save nahi ho saka.':'The sound could not be saved.','Test dabayein':'Tap Test','Pehle is Reminder ke liye ringtone/audio file choose ya record karein.':'First choose or record a ringtone/audio file for this reminder.',
+ 'Abhi recording nahi chal rahi.':'No recording is currently in progress.','Namaz Reminder':'Prayer Reminder','Namaz Reminder ki custom sound hata di gayi.':'The custom sound for the Prayer Reminder has been removed.',
+ 'Hijri Date Reminder ki custom sound hata di gayi.':'The custom sound for the Hijri Date Reminder has been removed.'
+});
+/* V189: language-system correction. Keep the V184 D dictionaries as the single source of truth. */
+Object.assign(D.english,{
+ '📅 AAJ KI TAREEKH':'📅 TODAY’S DATE','AAJ KI TAREEKH':'TODAY’S DATE','Aaj ki tareekh apne-aap':'Today’s date is automatic','Aaj ki tareekh ko timetable mein automatically highlight kiya gaya hai.':'Today’s date is automatically highlighted in the timetable.','Aapki Manual Hijri Date se judi hui':'Linked to your Manual Hijri Date',
+ '🕌 Aaj ka Namaz Time':'🕌 Today’s Prayer Times','Aaj ka Namaz Time':'Today’s Prayer Times','English Date':'English Date','🌙 Urdu Hijri Date':'🌙 Hijri Date','📄 Full Restore':'📄 Full Restore','ON':'ON',
+ 'Fajr':'Fajr','Asr':'Asr','Isha':'Isha','Maghrib':'Maghrib','Date':'Date','IMPORTANT INFORMATION':'IMPORTANT INFORMATION','IMPORTANT INSTRUCTIONS':'IMPORTANT INSTRUCTIONS','THIS TIME HAS BEEN ADJUSTED FOR BOMBAY & AROUND':'THIS TIME HAS BEEN ADJUSTED FOR BOMBAY & AROUND','FOR OTHER PLACES':'FOR OTHER PLACES',
+ 'SUBEH SADIQ :':'DAWN :','SUNRISE :':'SUNRISE :','ZAHVE KUBRA & ZAVAL :':'ZAWAL :','ASR :':'ASR :','SUNSET :':'SUNSET :','ISHA :':'ISHA :',
+ '📅 Month Jump':'📅 Month Jump','Aaj ki Namaz':'Today’s Prayer','Pura Din':'Full Day','Share Today':'Share Today','Today':'Today','Dark':'Dark','Print':'Print','Bottom':'Bottom','Top':'Top','Automatic':'Automatic','◀':'◀','▶':'▶',
+ 'January':'January','JANUARY':'JANUARY','February':'February','FEBRUARY':'FEBRUARY','March':'March','MARCH':'MARCH','April':'April','APRIL':'APRIL','May':'May','MAY':'MAY','June':'June','JUNE':'JUNE','July':'July','JULY':'JULY','August':'August','AUGUST':'AUGUST','September':'September','SEPTEMBER':'SEPTEMBER','October':'October','OCTOBER':'OCTOBER','November':'November','NOVEMBER':'NOVEMBER','December':'December','DECEMBER':'DECEMBER',
+ 'Language / Zaban':'Language','📲 Home Screen Shortcut':'📲 Home Screen Shortcut','🔔 NAMAZ REMINDER':'🔔 PRAYER REMINDER','▶ Test Reminder':'▶ Test Reminder','🛡️ Backup & Restore':'🛡️ Backup & Restore','📦 Backup':'📦 Backup','♻️ Restore':'♻️ Restore','↺ Reset':'↺ Reset','🌙 HIJRI DATE':'🌙 HIJRI DATE','🌙 AAJ KI HIJRI DATE':'🌙 TODAY’S HIJRI DATE'
+});
+Object.assign(D.hindi,{
+ '📅 AAJ KI TAREEKH':'📅 आज की तारीख','AAJ KI TAREEKH':'आज की तारीख','Aaj ki tareekh apne-aap':'आज की तारीख अपने-आप','Aaj ki tareekh ko timetable mein automatically highlight kiya gaya hai.':'आज की तारीख टाइमटेबल में अपने-आप हाइलाइट होती है।','Aapki Manual Hijri Date se judi hui':'आपकी मैनुअल हिजरी तारीख से जुड़ी हुई',
+ '🕌 Aaj ka Namaz Time':'🕌 आज के नमाज़ के समय','Aaj ka Namaz Time':'आज के नमाज़ के समय','English Date':'अंग्रेज़ी तारीख','🌙 Urdu Hijri Date':'🌙 उर्दू हिजरी तारीख','📄 Full Restore':'📄 पूरा रिस्टोर','ON':'चालू',
+ 'Fajr':'फ़ज्र','Asr':'असर','Isha':'इशा','Maghrib':'मग़रिब','Date':'तारीख','IMPORTANT INFORMATION':'महत्वपूर्ण जानकारी','IMPORTANT INSTRUCTIONS':'महत्वपूर्ण निर्देश','THIS TIME HAS BEEN ADJUSTED FOR BOMBAY & AROUND':'यह समय बॉम्बे और आसपास के लिए समायोजित किया गया है','FOR OTHER PLACES':'अन्य जगहों के लिए',
+ 'SUBEH SADIQ :':'सुबह सादिक :','SUNRISE :':'सूर्योदय :','ZAHVE KUBRA & ZAVAL :':'ज़हवे कुबरा और ज़वाल :','ASR :':'असर :','SUNSET :':'सूर्यास्त :','ISHA :':'इशा :',
+ 'Aaj ki Namaz':'आज की नमाज़','Pura Din':'पूरा दिन','Share Today':'आज शेयर करें','Today':'आज','Dark':'डार्क','Print':'प्रिंट','Bottom':'नीचे','Top':'ऊपर','Automatic':'अपने-आप','January':'जनवरी','JANUARY':'जनवरी','February':'फ़रवरी','FEBRUARY':'फ़रवरी','March':'मार्च','MARCH':'मार्च','April':'अप्रैल','APRIL':'अप्रैल','May':'मई','MAY':'मई','June':'जून','JUNE':'जून','July':'जुलाई','JULY':'जुलाई','August':'अगस्त','AUGUST':'अगस्त','September':'सितंबर','SEPTEMBER':'सितंबर','October':'अक्टूबर','OCTOBER':'अक्टूबर','November':'नवंबर','NOVEMBER':'नवंबर','December':'दिसंबर','DECEMBER':'दिसंबर',
+ 'Language / Zaban':'भाषा','🔔 NAMAZ REMINDER':'🔔 नमाज़ रिमाइंडर','▶ Test Reminder':'▶ रिमाइंडर टेस्ट','🛡️ Backup & Restore':'🛡️ बैकअप और रिस्टोर','📦 Backup':'📦 बैकअप','♻️ Restore':'♻️ रिस्टोर','↺ Reset':'↺ रीसेट','🌙 HIJRI DATE':'🌙 हिजरी तारीख','🌙 AAJ KI HIJRI DATE':'🌙 आज की हिजरी तारीख'
+});
+Object.assign(D.urdu,{
+ '📅 AAJ KI TAREEKH':'📅 آج کی تاریخ','AAJ KI TAREEKH':'آج کی تاریخ','Aaj ki tareekh apne-aap':'آج کی تاریخ خودکار','Aaj ki tareekh ko timetable mein automatically highlight kiya gaya hai.':'آج کی تاریخ ٹائم ٹیبل میں خودکار طور پر نمایاں ہوتی ہے۔','Aapki Manual Hijri Date se judi hui':'آپ کی دستی ہجری تاریخ سے منسلک',
+ '🕌 Aaj ka Namaz Time':'🕌 آج کے نماز کے اوقات','Aaj ka Namaz Time':'آج کے نماز کے اوقات','English Date':'انگریزی تاریخ','🌙 Urdu Hijri Date':'🌙 اردو ہجری تاریخ','📄 Full Restore':'📄 مکمل بحالی','ON':'آن',
+ 'Fajr':'فجر','Asr':'عصر','Isha':'عشاء','Maghrib':'مغرب','Date':'تاریخ','IMPORTANT INFORMATION':'اہم معلومات','IMPORTANT INSTRUCTIONS':'اہم ہدایات','THIS TIME HAS BEEN ADJUSTED FOR BOMBAY & AROUND':'یہ وقت بمبئی اور آس پاس کے لیے ایڈجسٹ کیا گیا ہے','FOR OTHER PLACES':'دوسری جگہوں کے لیے',
+ 'SUBEH SADIQ :':'صبح صادق :','SUNRISE :':'طلوعِ آفتاب :','ZAHVE KUBRA & ZAVAL :':'زوال :','ASR :':'عصر :','SUNSET :':'غروبِ آفتاب :','ISHA :':'عشاء :',
+ 'Aaj ki Namaz':'آج کی نماز','Pura Din':'پورا دن','Share Today':'آج شیئر کریں','Today':'آج','Dark':'ڈارک','Print':'پرنٹ','Bottom':'نیچے','Top':'اوپر','Automatic':'خودکار','January':'جنوری','JANUARY':'جنوری','February':'فروری','FEBRUARY':'فروری','March':'مارچ','MARCH':'مارچ','April':'اپریل','APRIL':'اپریل','May':'مئی','MAY':'مئی','June':'جون','JUNE':'جون','July':'جولائی','JULY':'جولائی','August':'اگست','AUGUST':'اگست','September':'ستمبر','SEPTEMBER':'ستمبر','October':'اکتوبر','OCTOBER':'اکتوبر','November':'نومبر','NOVEMBER':'نومبر','December':'دسمبر','DECEMBER':'دسمبر',
+ 'Language / Zaban':'زبان','🔔 NAMAZ REMINDER':'🔔 نماز ریمائنڈر','▶ Test Reminder':'▶ ریمائنڈر ٹیسٹ','🛡️ Backup & Restore':'🛡️ بیک اپ اور بحالی','📦 Backup':'📦 بیک اپ','♻️ Restore':'♻️ بحالی','↺ Reset':'↺ ری سیٹ','🌙 HIJRI DATE':'🌙 ہجری تاریخ','🌙 AAJ KI HIJRI DATE':'🌙 آج کی ہجری تاریخ'
+});
+/* V189: case-insensitive fallback so static uppercase labels and dynamic text use the same dictionary. */
+var v189OriginalApply=apply;
+apply=function(lang){
+  capture(); var d=D[lang]||D.roman;
+  var lower={}; Object.keys(d).forEach(function(k){lower[k.trim().toLowerCase()]=d[k];});
+  nodes().forEach(function(el){var k=el.dataset.v183LangKey;if(!k)return;var out=d[k];if(out===undefined)out=lower[k.trim().toLowerCase()];if(out!==undefined)el.textContent=out;});
+  document.documentElement.lang=lang==='hindi'?'hi':lang==='urdu'?'ur':'en';localStorage.setItem(KEY,lang);
+  var sel=document.getElementById('v184LanguageSelect');if(sel)sel.value=lang;
+  var note=document.getElementById('v184LanguageNote');if(note)note.textContent=lang==='hindi'?'भाषा बदलते ही ऐप के उपलब्ध लेबल बदल जाते हैं।':lang==='urdu'?'زبان منتخب کرنے سے ایپ کے دستیاب لیبل تبدیل ہو جاتے ہیں۔':lang==='english'?'Changing the language updates the available app labels and Help text.':'Language select karte hi app ke available labels aur Help text badlenge.';
+};
+window.muazzinTranslate=function(key){var lang=localStorage.getItem(KEY)||'roman';var d=D[lang]||D.roman;return d[key]||key;};
+var v184DynamicObserver=null;
+function installV184Observer(){
+ if(v184DynamicObserver) return;
+ v184DynamicObserver=new MutationObserver(function(muts){
+   var lang=localStorage.getItem(KEY)||'roman', d=D[lang]||D.roman;
+   muts.forEach(function(m){
+     if(m.type==='characterData'){
+       var p=m.target.parentElement; if(!p||['SCRIPT','STYLE','OPTION'].includes(p.tagName))return;
+       var raw=m.target.nodeValue.trim(); if(d[raw] && raw!==d[raw]){m.target.nodeValue=m.target.nodeValue.replace(raw,d[raw]);}
+     }
+     if(m.type==='childList'){
+       m.addedNodes.forEach(function(n){if(n.nodeType!==1)return;
+         Array.prototype.slice.call(n.querySelectorAll ? n.querySelectorAll('*') : []).concat([n]).forEach(function(el){
+           if(['SCRIPT','STYLE','OPTION','INPUT','TEXTAREA','SELECT'].includes(el.tagName))return;
+           if(el.childElementCount===0){var raw=el.textContent.trim(); if(d[raw]) el.textContent=d[raw];}
+         });
+       });
+     }
+   });
+ });
+ v184DynamicObserver.observe(document.body,{subtree:true,childList:true,characterData:true});
+}
+var originals={};
+var D=window.__MUAZZIN_I18N_D||{};
+function nodes(){return Array.prototype.slice.call(document.querySelectorAll('body *')).filter(function(el){return !['SCRIPT','STYLE','OPTION'].includes(el.tagName) && el.childElementCount===0;});}
+function capture(){nodes().forEach(function(el){if(!el.dataset.v183LangKey){var x=el.textContent.trim();if(x) el.dataset.v183LangKey=x;}});}
+function apply(lang){capture();var d=D[lang]||D.roman;nodes().forEach(function(el){var k=el.dataset.v183LangKey;if(k&&d[k]) el.textContent=d[k];});
+  document.documentElement.lang=lang==='hindi'?'hi':lang==='urdu'?'ur':'en';
+  localStorage.setItem(KEY,lang);
+  var sel=document.getElementById('v184LanguageSelect');if(sel)sel.value=lang;
+  var note=document.getElementById('v184LanguageNote');if(note)note.textContent=lang==='hindi'?'भाषा बदलते ही ऐप के उपलब्ध लेबल बदल जाते हैं।':lang==='urdu'?'زبان منتخب کرنے سے ایپ کے دستیاب لیبل تبدیل ہو جاتے ہیں।':lang==='english'?'Changing the language updates the available app labels and Help text.':'Language select karte hi app ke available labels aur Help text badlenge.';
+}
+function init(){capture();var sel=document.getElementById('v184LanguageSelect');if(!sel)return;sel.addEventListener('change',function(){apply(this.value);});var saved=localStorage.getItem(KEY)||'roman';apply(saved);}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
 </body>
