@@ -1924,7 +1924,7 @@ if(document.readyState==='loading')window.addEventListener('DOMContentLoaded',bi
 })();
 </script>
 
-<script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("service-worker-v216.js").catch(function(e){console.warn("Service Worker registration failed",e);});});}</script><style id="v127-install-shortcut-style">
+<script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("service-worker-v217.js").catch(function(e){console.warn("Service Worker registration failed",e);});});}</script><style id="v127-install-shortcut-style">
 /* V127: mobile home-screen shortcut/install helper only. */
 #v110InstallBtn{display:none!important;position:fixed;right:14px;bottom:14px;z-index:9999;border:0;border-radius:999px;padding:11px 15px;background:#075e3b;color:#fff;font-weight:900;box-shadow:0 6px 18px #0004;cursor:pointer}
 #v110InstallBtn.show{display:block}
@@ -2565,7 +2565,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 </script>
 
 <style id="v216-easy-time-style">
-/* V216: easy Namaz time picker — no clock-face minute hunting. */
+/* V217: easy Namaz time picker — no clock-face minute hunting. */
 .v216-time-picker{position:fixed;z-index:2147483647;left:50%;top:50%;transform:translate(-50%,-50%);width:min(330px,calc(100vw - 28px));background:#fff;border-radius:18px;box-shadow:0 14px 50px #0006;padding:14px;display:none;color:#17322a}.v216-time-picker.show{display:block}.v216-time-title{text-align:center;font-size:16px;font-weight:900;margin-bottom:10px}.v216-time-row{display:flex;gap:8px;justify-content:center;align-items:center}.v216-time-select{font-size:18px;font-weight:900;padding:9px;border:1px solid #b9d2bf;border-radius:10px;background:#fff}.v216-minutes{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:12px}.v216-minutes button{border:1px solid #b9d2bf;border-radius:9px;background:#f5faf7;padding:8px 2px;font-weight:900;font-size:13px}.v216-minutes button.active{background:#174d32;color:#fff}.v216-time-actions{display:flex;gap:8px;margin-top:12px}.v216-time-actions button{flex:1;border:0;border-radius:10px;padding:10px;font-weight:900}.v216-ok{background:#174d32;color:#fff}.v216-cancel{background:#e8eee9;color:#17322a}.v216-backdrop{position:fixed;inset:0;background:#0005;z-index:2147483646;display:none}.v216-backdrop.show{display:block}
 </style>
 <div class="v216-backdrop" id="v216TimeBackdrop"></div><div class="v216-time-picker" id="v216TimePicker" role="dialog" aria-label="Namaz time set"><div class="v216-time-title">Namaz ka time set karein</div><div class="v216-time-row"><select class="v216-time-select" id="v216Hour"></select><b>:</b><select class="v216-time-select" id="v216Ampm"><option value="AM">AM</option><option value="PM">PM</option></select></div><div class="v216-minutes" id="v216Minutes"></div><div class="v216-time-actions"><button class="v216-cancel" type="button" id="v216Cancel">Cancel</button><button class="v216-ok" type="button" id="v216Ok">Set Time</button></div></div>
