@@ -2,7 +2,7 @@ name: Export V248 HTML
 on:
   push:
     paths:
-      - 'Muazzin-Ka-Kaam-V248.html'
+      - 'Muazzin-Ka-Kaam-V248-EXPORT-TEMP.html'
 jobs:
   export:
     runs-on: ubuntu-latest
@@ -11,4 +11,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: Muazzin-Ka-Kaam-V248
-          path: Muazzin-Ka-Kaam-V248.html
+          path: Muazzin-Ka-Kaam-V248-EXPORT-TEMP.html
