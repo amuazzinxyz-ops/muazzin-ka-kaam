@@ -1380,3 +1380,14 @@ button[aria-pressed="true"],button.active{
   background:rgba(214,168,79,.28);
 }
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium print-safe visual cleanup; existing data/functionality preserved. -->
+<style id="safe-development-step-41">
+@media print{
+  body{background:#fff!important;color:#000!important;}
+  .card{box-shadow:none!important;border-color:#bbb!important;}
+  button,.nav,.controls,.search-box,.search-row{box-shadow:none!important;}
+  .scroll{box-shadow:none!important;border-color:#999!important;}
+  .scroll thead th{background:#eee!important;color:#000!important;}
+}
+</style>
