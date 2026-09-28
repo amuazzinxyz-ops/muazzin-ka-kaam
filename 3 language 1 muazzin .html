@@ -1305,3 +1305,20 @@ input:focus,select:focus,textarea:focus{
   .scroll tbody tr.today-row td:first-child{border-left-width:3px!important;}
 }
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium table corner polish; existing data/functionality preserved. -->
+<style id="safe-development-step-36">
+.scroll{
+  border:1px solid rgba(7,94,59,.20);
+  background:linear-gradient(180deg,#ffffff 0%,#fbfdfb 100%);
+}
+.scroll table{
+  border-collapse:separate;
+  border-spacing:0;
+}
+.scroll thead th:first-child{border-top-left-radius:9px;}
+.scroll thead th:last-child{border-top-right-radius:9px;}
+@media(max-width:700px){
+  .scroll{background:#fff;}
+}
+</style>
