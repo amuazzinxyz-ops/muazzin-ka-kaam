@@ -1002,6 +1002,11 @@ button:hover,.btn:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(16
   color:#fff!important;
 }
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: final mobile tap-safety polish; no existing UI/functionality changed. -->
+<style id="safe-development-step-5">
+@media(max-width:600px){button,a,select,input{touch-action:manipulation;}button,a{ -webkit-tap-highlight-color:rgba(214,166,43,.16);}}
+</style>
 <!-- SAFE DEVELOPMENT STEP: backup-safe marker only; no existing UI/functionality changed. -->
 <style id="safe-development-step-1">#muazzinSafeDevMarker{display:none!important}</style>
 
