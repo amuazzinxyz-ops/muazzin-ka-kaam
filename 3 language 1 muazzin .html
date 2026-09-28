@@ -1798,3 +1798,9 @@ tbody tr{transition:background-color .16s ease,box-shadow .16s ease;}
 tbody tr:hover{box-shadow:inset 3px 0 0 currentColor;}
 @media (prefers-reduced-motion:reduce){tbody tr{transition:none;}}
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium sticky table headings on scroll; existing data/functionality preserved. -->
+<style id="safe-development-step-101">
+.scroll table thead th{position:sticky;top:0;z-index:3;}
+@media print{.scroll table thead th{position:static;}}
+</style>
