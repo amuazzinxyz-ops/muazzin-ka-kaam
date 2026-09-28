@@ -1610,3 +1610,12 @@ table{break-inside:auto;}
 tr{break-inside:avoid;}
 }
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium print table readability; existing data/functionality preserved. -->
+<style id="safe-development-step-68">
+@media print{
+thead{display:table-header-group;}
+tfoot{display:table-footer-group;}
+th,td{color:#111!important;background:#fff!important;text-shadow:none!important;}
+}
+</style>
