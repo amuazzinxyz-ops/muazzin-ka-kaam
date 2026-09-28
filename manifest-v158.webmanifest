@@ -1,11 +1,17 @@
 {
   "name": "Muazzin Ka Kaam",
   "short_name": "Muazzin",
-  "start_url": "./index.html",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone"
+  ],
   "background_color": "#ffffff",
-  "theme_color": "#0b5ed7",
-  "description": "Islamic timetable PWA",
+  "theme_color": "#173f91",
+  "description": "Muazzin Ka Kaam Islamic timetable",
   "icons": [
     {
       "src": "icon-192.svg",
