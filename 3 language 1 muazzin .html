@@ -1086,3 +1086,8 @@ img,video,canvas{max-width:100%;height:auto;}
 <style id="safe-development-step-17">
 @media(max-width:700px){.scroll{overscroll-behavior-x:contain;overscroll-behavior-y:auto;}}
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: mobile safe-area padding for existing fixed controls; no existing data/functionality changed. -->
+<style id="safe-development-step-18">
+@media(max-width:700px){body{padding-bottom:max(0px,env(safe-area-inset-bottom));}button,a{margin-bottom:0;}}
+</style>
