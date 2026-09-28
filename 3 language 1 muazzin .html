@@ -1670,3 +1670,9 @@ select{min-height:36px;padding-inline:8px;}
 textarea{line-height:1.45;min-height:72px;}
 @media(max-width:700px){textarea{min-height:80px;}}
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium field transition polish; existing data/functionality preserved. -->
+<style id="safe-development-step-78">
+input,select,textarea,button{transition:box-shadow .16s ease,transform .12s ease;}
+@media(prefers-reduced-motion:reduce){input,select,textarea,button{transition:none;}}
+</style>
