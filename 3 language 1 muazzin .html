@@ -1880,3 +1880,10 @@ if('serviceWorker' in navigator && (location.protocol === 'https:' || location.h
 #pwaInstallButton.pwa-ready{min-height:40px;min-width:44px;padding:.55rem .9rem;}
 @media (max-width:420px){#pwaInstallButton.pwa-ready{min-height:40px;min-width:44px;padding:.55rem .85rem;}}
 </style>
+
+<style id="safe-development-step-113">
+/* Step 113: safe-area support for standalone/mobile display */
+body{padding-bottom:max(0px,env(safe-area-inset-bottom));}
+@media (display-mode:standalone){body{padding-top:max(0px,env(safe-area-inset-top));}}
+@media print{body{padding-top:0;padding-bottom:0;}}
+</style>
