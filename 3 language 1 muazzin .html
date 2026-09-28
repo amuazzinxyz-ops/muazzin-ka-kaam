@@ -1322,3 +1322,17 @@ input:focus,select:focus,textarea:focus{
   .scroll{background:#fff;}
 }
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium navigation control grouping; existing data/functionality preserved. -->
+<style id="safe-development-step-37">
+.nav, .controls, .search-box, .search-row{
+  border-radius:12px;
+}
+.nav button, .controls button, .search-box button, .search-row button{
+  min-height:40px;
+}
+@media(max-width:700px){
+  .nav, .controls, .search-box, .search-row{gap:7px;}
+  .nav button, .controls button, .search-box button, .search-row button{min-height:42px;}
+}
+</style>
