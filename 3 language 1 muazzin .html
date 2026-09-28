@@ -1437,3 +1437,12 @@ button[aria-pressed="true"],button.active{
   .hero + .card{margin-top:14px;}
 }
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium current-state emphasis; existing data/functionality preserved. -->
+<style id="safe-development-step-45">
+/* Keep today's active timetable content visually easy to find without changing its data or behavior. */
+.current,.today,.today-row,.active-row,.current-day{scroll-margin-top:84px;}
+.current-day,.today-row,.active-row{font-weight:600;}
+.current-day td,.today-row td,.active-row td{box-shadow:inset 0 1px 0 rgba(214,168,79,.16),inset 0 -1px 0 rgba(7,94,59,.10);}
+@media(max-width:700px){.current-day td,.today-row td,.active-row td{box-shadow:inset 0 1px 0 rgba(214,168,79,.14),inset 0 -1px 0 rgba(7,94,59,.08);}}
+</style>
