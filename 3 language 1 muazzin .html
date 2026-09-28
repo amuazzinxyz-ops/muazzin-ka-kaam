@@ -1468,3 +1468,11 @@ table tbody tr td:first-child{letter-spacing:.01em;}
 table tbody tr:hover td{background:rgba(7,94,59,.035);}
 @media(max-width:700px){table tbody tr:hover td{background:transparent;}}
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium editable-field clarity; existing data/functionality preserved. -->
+<style id="safe-development-step-49">
+input,select,textarea{outline-offset:2px;}
+input::placeholder,textarea::placeholder{opacity:.72;}
+input:disabled,select:disabled,textarea:disabled{cursor:not-allowed;}
+@media(max-width:700px){input,select,textarea{min-height:38px;}}
+</style>
