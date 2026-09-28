@@ -1858,3 +1858,19 @@ if('serviceWorker' in navigator && (location.protocol === 'https:' || location.h
   window.addEventListener('load',function(){ navigator.serviceWorker.register('./service-worker.js').catch(function(){}); });
 }
 </script>
+
+<style id="safe-development-step-111">
+/* Step 111: premium install affordance */
+#pwaInstallButton{display:none;}
+#pwaInstallButton.pwa-ready{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;}
+@media print{#pwaInstallButton{display:none!important;}}
+</style>
+<script>
+/* Step 111: show a native install prompt button when the browser supports it */
+(function(){
+  let deferredPrompt=null;
+  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();deferredPrompt=e;const b=document.getElementById('pwaInstallButton');if(b)b.classList.add('pwa-ready');});
+  window.addEventListener('appinstalled',function(){deferredPrompt=null;const b=document.getElementById('pwaInstallButton');if(b)b.classList.remove('pwa-ready');});
+  document.addEventListener('click',function(e){const b=e.target.closest&&e.target.closest('#pwaInstallButton');if(!b||!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(function(){deferredPrompt=null;b.classList.remove('pwa-ready');});});
+})();
+</script>
