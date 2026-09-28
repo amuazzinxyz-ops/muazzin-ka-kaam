@@ -1214,3 +1214,10 @@ button:focus-visible{
   button:hover{box-shadow:0 2px 7px rgba(23,50,42,.09);}
 }
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium card hover polish; existing data/functionality preserved. -->
+<style id="safe-development-step-31">
+.card{transition:transform .16s ease,box-shadow .16s ease;}
+.card:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(23,50,42,.11);}
+@media(max-width:700px){.card:hover{transform:none;box-shadow:0 8px 24px rgba(23,50,42,.09);}}
+</style>
