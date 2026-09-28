@@ -1180,3 +1180,20 @@ button:active{transform:translateY(1px);}
   .card h2{margin-top:8px;margin-bottom:10px;}
 }
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium section title accent; existing data/functionality preserved. -->
+<style id="safe-development-step-29">
+.card h2,.card h3{position:relative;}
+.card h2:after,.card h3:after{
+  content:"";
+  display:block;
+  width:42px;
+  height:3px;
+  margin-top:7px;
+  border-radius:99px;
+  background:var(--premium-gold,#d6a84f);
+}
+@media(max-width:700px){
+  .card h2:after,.card h3:after{width:34px;height:2px;margin-top:5px;}
+}
+</style>
