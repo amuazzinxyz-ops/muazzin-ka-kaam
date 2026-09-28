@@ -1403,3 +1403,26 @@ button[aria-pressed="true"],button.active{
   .card{margin-top:10px;margin-bottom:10px;}
 }
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium hero image framing; existing data/functionality preserved. -->
+<style id="safe-development-step-43">
+.hero.mosque-hero{
+  overflow:hidden;
+  border:1px solid rgba(7,94,59,.14);
+}
+.hero.mosque-hero img{
+  display:block;
+  width:100%;
+  object-fit:cover;
+  object-position:center;
+}
+.hero.mosque-hero:after{
+  content:"";
+  display:block;
+  height:3px;
+  background:linear-gradient(90deg,transparent,var(--premium-gold,#d6a84f),transparent);
+}
+@media(max-width:700px){
+  .hero.mosque-hero:after{height:2px;}
+}
+</style>
