@@ -1483,3 +1483,11 @@ input[type="search"],input[name*="search" i]{border-radius:12px;}
 input[type="search"]:focus,input[name*="search" i]:focus{box-shadow:0 0 0 3px rgba(214,168,79,.18),0 5px 16px rgba(7,94,59,.08);}
 @media(max-width:700px){input[type="search"],input[name*="search" i]{font-size:16px;}}
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium month-section separation; existing data/functionality preserved. -->
+<style id="safe-development-step-51">
+.month{position:relative;}
+.month:before{content:"";display:block;height:2px;margin:0 10px 8px;background:linear-gradient(90deg,transparent,rgba(214,168,79,.65),transparent);border-radius:999px;}
+.month:first-child:before{opacity:.55;}
+@media(max-width:700px){.month:before{margin:0 6px 6px;}}
+</style>
