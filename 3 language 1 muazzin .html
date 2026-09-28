@@ -1593,3 +1593,8 @@ html,body{overflow-x:hidden;}
 img,video,canvas,svg{max-width:100%;}
 @media(max-width:700px){.wrap{max-width:100%;}}
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium reduced-motion accessibility; existing data/functionality preserved. -->
+<style id="safe-development-step-66">
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important;}}
+</style>
