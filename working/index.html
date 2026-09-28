@@ -1,0 +1,1019 @@
+<!-- DEEP PERFORMANCE FIX + DATE/Hijri RESTORE -->
+<!-- DEEP PERFORMANCE FIX: broad DOM observers removed; redundant high-frequency repaints reduced. -->
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Muazzin Ka Kaam — V247</title><style>body{font-family:Arial,"Noto Sans Arabic",sans-serif;margin:0;background:#f5f7fb;color:#172033;line-height:1.55}.wrap{max-width:1200px;margin:auto;padding:18px}.hero{background:linear-gradient(135deg,#6a1b9a,#173f91);color:#fff;padding:26px;border-radius:20px;text-align:center;margin-bottom:18px}h1{margin:0;font-size:30px}h2{font-size:25px;margin-top:12px}.card{background:#fff;border-radius:18px;padding:20px;margin:16px 0;box-shadow:0 5px 18px #0001}.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}.cols>div{padding:18px;border-radius:15px;background:#f7f9ff}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border:1px solid #b9c2d0;padding:7px;text-align:center;white-space:nowrap}th{background:#e8eefb;position:sticky;top:0}.scroll{overflow:auto}.month{margin-top:28px}.month h2{background:#173f91;color:#fff;padding:10px 14px;border-radius:12px}.tools{position:sticky;top:0;z-index:5;background:#ffffffee;backdrop-filter:blur(8px);padding:10px;display:flex;gap:8px;justify-content:center}.tools button{border:0;border-radius:12px;padding:10px 15px;font-weight:700;cursor:pointer}.dark{background:#111827;color:#f3f4f6}.dark .card,.dark .cols>div,.dark .tools{background:#1f2937;color:#f3f4f6}.dark th{background:#374151}.dark td,.dark th{border-color:#4b5563}.small{font-size:13px;color:#667085}</style><style>.mosque-hero{padding:10px;overflow:hidden;background:linear-gradient(135deg,#061d4d,#35106d);border:2px solid #d6ad45;box-shadow:0 10px 30px #0003}.mosque-art{max-width:620px;max-height:64px;margin:auto;border-radius:10px;overflow:hidden}.mosque-art svg{display:block;width:100%;height:64px;object-fit:cover;object-position:center}.hero-title{margin-top:10px;padding:5px 10px;border-radius:12px;background:#ffffff16;border:1px solid #ffffff44}.arabic-title{margin-top:5px;font-family:"Noto Nastaliq Urdu","Noto Sans Arabic",serif;font-size:17px;font-weight:800;direction:rtl}.hero-sub{margin-top:1px;font-size:8px;letter-spacing:2px;opacity:.9}.dark .mosque-hero{background:#050b19}.address-card{padding:10px 14px!important;margin:10px 0!important}.address-card h2{font-size:20px!important;margin:2px 0 6px!important}.address-card p{font-size:12px!important;line-height:1.35!important;margin:3px 0!important}.azaan-jamaat-box{max-width:760px;margin:6px auto 9px;padding:5px 7px;background:#fff;border:1.5px solid #d6ad45;border-radius:12px;box-shadow:0 3px 10px #0001}.timing-row-title{text-align:center;font-size:13px;font-weight:900;color:#123d2c;line-height:1.1;margin:1px 0 3px;letter-spacing:.2px}.jamaat-title{margin-top:5px}.timing-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;min-width:0;width:100%;direction:ltr}.timing-row label{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:10px;font-weight:900;color:#123d2c;min-width:0;width:100%;direction:ltr}.timing-row input{display:block;width:100%;min-width:0;max-width:none;box-sizing:border-box;font-size:11px;font-weight:800;padding:4px 1px;border:1px solid #b8c7bf;border-radius:6px;text-align:center;background:#fff;direction:ltr;overflow:visible}input[type=time]::-webkit-datetime-edit-fields-wrapper{display:flex;justify-content:center;align-items:center;width:100%;padding:0}input[type=time]::-webkit-datetime-edit-hour-field,input[type=time]::-webkit-datetime-edit-minute-field,input[type=time]::-webkit-datetime-edit-ampm-field{padding:0 1px;font-size:11px}input[type=time]::-webkit-datetime-edit-text{padding:0 1px}.dark .azaan-jamaat-box{background:#1f2937}.dark .timing-row-title,.dark .timing-row label{color:#f3f4f6}.dark .timing-row input{background:#111827;color:#f3f4f6;border-color:#4b5563}@media(max-width:600px){.azaan-jamaat-box{margin:5px auto 8px;padding:4px;overflow:hidden}.timing-row{grid-template-columns:repeat(5,minmax(0,1fr));gap:3px;min-width:0;width:100%;overflow:visible;padding:1px 0 3px}.timing-row label{width:100%;min-width:0;font-size:7.5px}.timing-row input{width:100%;min-width:0;max-width:none;font-size:10px;padding:4px 0;text-align:center}input[type=time]::-webkit-datetime-edit-hour-field,input[type=time]::-webkit-datetime-edit-minute-field,input[type=time]::-webkit-datetime-edit-ampm-field{padding:0;font-size:10px}input[type=time]::-webkit-datetime-edit-text{padding:0}}
+/* V34: keep Today target visible below the fixed header */
+.month, [data-month], .month-card { scroll-margin-top: 90px; }
+</style><style>
+.photo-mosque{max-width:620px;height:150px;margin:auto;border-radius:14px;overflow:hidden;background:#e8e1d4;border:2px solid #d6ad45;box-shadow:0 8px 24px #0003}
+.photo-mosque img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 52%;filter:saturate(.9) contrast(1.04)}
+@media(max-width:600px){.photo-mosque{height:125px}.photo-mosque img{object-position:center 50%}}
+</style><style>
+/* Bold + Color timetable design */
+.month h2{font-weight:900;letter-spacing:.4px;text-shadow:0 1px 1px #0004}
+table{font-weight:700;border:2px solid #8b96a8;border-radius:14px;overflow:hidden}
+thead th{font-weight:900;font-size:15px;color:#fff;letter-spacing:.2px;padding:10px 7px}
+tbody td{font-weight:1000;font-size:14px;padding:8px 7px;transition:.15s}
+tbody tr:nth-child(even) td{filter:saturate(.96) brightness(1.015)}
+tbody tr:hover td{outline:2px solid #d4af37;outline-offset:-2px;transform:scale(1.01)}
+thead th:nth-child(1){background:#374151}
+thead th:nth-child(2){background:#087f5b}
+thead th:nth-child(3){background:#d18b00}
+thead th:nth-child(4){background:#7c3aed}
+thead th:nth-child(5){background:#c2410c}
+thead th:nth-child(6){background:#0f766e}
+thead th:nth-child(7){background:#15803d}
+thead th:nth-child(8){background:#b45309}
+thead th:nth-child(9){background:#4338ca}
+tbody td:nth-child(1){background:#f1f3f5;color:#172033;font-weight:900}
+tbody td:nth-child(2){background:#e6f7ef;color:#075b40}
+tbody td:nth-child(3){background:#fff4d6;color:#8a5600}
+tbody td:nth-child(4){background:#f0e8ff;color:#5b21b6}
+tbody td:nth-child(5){background:#ffeadf;color:#9a3412}
+tbody td:nth-child(6){background:#e2f7f4;color:#0f5f59}
+tbody td:nth-child(7){background:#e6f7e8;color:#166534}
+tbody td:nth-child(8){background:#fff0d8;color:#92400e}
+tbody td:nth-child(9){background:#e9e8ff;color:#3730a3}
+.dark tbody td:nth-child(1){background:#374151;color:#fff}
+.dark tbody td:nth-child(2){background:#123d32;color:#d1fae5}
+.dark tbody td:nth-child(3){background:#4a3912;color:#fde68a}
+.dark tbody td:nth-child(4){background:#35205c;color:#e9d5ff}
+.dark tbody td:nth-child(5){background:#4a2416;color:#fed7aa}
+.dark tbody td:nth-child(6){background:#123c3a;color:#ccfbf1}
+.dark tbody td:nth-child(7){background:#163b24;color:#bbf7d0}
+.dark tbody td:nth-child(8){background:#4a2d12;color:#fed7aa}
+.dark tbody td:nth-child(9){background:#24245a;color:#ddd6fe}
+.time-note{margin:10px 0 4px;text-align:center;font-weight:800;font-size:13px;color:#475467}
+.dark .time-note{color:#cbd5e1}
+@media(max-width:700px){thead th{font-size:13px}tbody td{font-size:13px;padding:7px 6px}.month h2{font-size:21px}}
+</style><style>
+/* Mobile horizontal timetable viewing: swipe/drag left-right */
+.scroll{overflow-x:auto!important;overflow-y:hidden!important;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;scrollbar-width:auto;}
+.scroll table{min-width:980px!important;width:980px!important;}
+@media(max-width:700px){.scroll{border-radius:12px;box-shadow:inset 0 0 0 2px #d5dbea;cursor:grab}.scroll:active{cursor:grabbing}.scroll table{min-width:920px!important;width:920px!important;} .scroll th,.scroll td{padding:6px 7px!important;font-size:12px!important;}}
+</style>
+<script>
+
+(function(){
+  const MONTHS=['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER'];
+  const PRAYERS={
+    'Isha':['isha','इशा','ईशा'],
+    'Sun Set':['sun set','sunset','sun-set','सनसेट','सन सेट','सूरज डूबना','सूर्यास्त','sunset time'],
+    'Zaval':['zaval','zawal','zawaal','ज़वाल','जवाल','जव्वाल'],
+    'Asr Shafee':['asr shafee','asr shafai','asr shafi','असर शाफई','असर शफई','असर शाफ़ई'],
+    'Asr':['asr','असर','अस्र'],
+    'Subeh Sadiq':['subeh sadiq','subah sadiq','subhe sadiq','subah sadik','सुबह सादिक','सुबह सादिक़','फज्र','फ़ज्र','fajr'],
+    'Sun Rise':['sun rise','sunrise','sun-rise','सूर्योदय','सूरज निकलना']
+  };
+  const WORDS={
+    'एक':1,'दो':2,'तीन':3,'चार':4,'पांच':5,'पाँच':5,'छह':6,'छः':6,'सात':7,'आठ':8,'नौ':9,'दस':10,'ग्यारह':11,'बारह':12,'तेरह':13,'चौदह':14,'पंद्रह':15,'पन्द्रह':15,'सोलह':16,'सत्रह':17,'अठारह':18,'उन्नीस':19,'बीस':20,'इक्कीस':21,'बाईस':22,'तेईस':23,'चौबीस':24,'पच्चीस':25,'छब्बीस':26,'सत्ताईस':27,'अट्ठाईस':28,'अट्ठाइस':28,'उनतीस':29,'तीस':30,'इकतीस':31,
+    'اک':1,'دو':2,'تین':3,'چار':4,'پانچ':5,'چھ':6,'سات':7,'آٹھ':8,'نو':9,'دس':10,'گیارہ':11,'بارہ':12,'تیرہ':13,'چودہ':14,'پندرہ':15,'سولہ':16,'سترہ':17,'اٹھارہ':18,'انیس':19,'بیس':20,'اکیس':21,'بائیس':22,'تئیس':23,'چوبیس':24,'پچیس':25,'چھبیس':26,'ستائیس':27,'اٹھائیس':28,'انتیس':29,'تیس':30,'اکتیس':31
+  };
+  function clean(v){return String(v||'').toLowerCase().replace(/[\u00a0]+/g,' ').replace(/[‐‑‒–—-]/g,' ').replace(/\s+/g,' ').trim();}
+  function dateNumber(v){
+    const t=clean(v); if(WORDS[t]) return WORDS[t];
+    const d=t.replace(/[०-९]/g,ch=>'०१२३४५६७८९'.indexOf(ch));
+    const m=d.match(/\b\d{1,2}\b/); if(!m)return null;
+    const n=parseInt(m[0],10); return n>=1&&n<=31?n:null;
+  }
+  function prayerFromText(v){
+    const t=clean(v);
+    const all=[];
+    Object.keys(PRAYERS).forEach(name=>PRAYERS[name].forEach(a=>all.push({name,a:clean(a)})));
+    all.sort((x,y)=>y.a.length-x.a.length);
+    for(const x of all){ if(t===x.a || t.includes(x.a)) return x.name; }
+    return null;
+  }
+  function currentMonth(){
+    const wanted=MONTHS[new Date().getMonth()];
+    let found=null;
+    document.querySelectorAll('.month').forEach(sec=>{
+      const title=(sec.getAttribute('data-month')||sec.querySelector('h2')?.textContent||'').trim().toUpperCase();
+      if(title===wanted)found=sec;
+    });
+    return found;
+  }
+  function prayerColumn(table,name){
+    const wanted=PRAYERS[name]||[name];
+    const normalized=wanted.map(clean);
+    const heads=Array.from(table.querySelectorAll('thead th'));
+    return heads.findIndex(h=>normalized.includes(clean(h.textContent)));
+  }
+  function clearRowsOnly(){
+    document.querySelectorAll('.month').forEach(sec=>{
+      sec.classList.remove('hiddenMonth','hasNoMatch');
+      sec.querySelectorAll('tbody tr').forEach(r=>{r.style.display='';r.classList.remove('search-hit');});
+      sec.querySelectorAll('th,td').forEach(c=>c.classList.remove('focus-col'));
+    });
+  }
+  function goToDatePrayer(day,name){
+    const sec=currentMonth();
+    if(!sec)return;
+    document.querySelectorAll('.month').forEach(m=>m.classList.add('hiddenMonth'));
+    sec.classList.remove('hiddenMonth');
+    const table=sec.querySelector('table');
+    if(!table)return;
+    const idx=prayerColumn(table,name);
+    let target=null;
+    table.querySelectorAll('tbody tr').forEach(row=>{
+      const cells=row.querySelectorAll('td');
+      const n=parseInt((cells[0]?.textContent||'').replace(/[^0-9]/g,''),10);
+      const hit=n===day;
+      row.style.display=hit?'':'none';
+      row.classList.toggle('search-hit',hit);
+      if(hit)target=row;
+    });
+    table.querySelectorAll('thead th').forEach((h,i)=>h.classList.toggle('focus-col',i===0||i===idx));
+    table.querySelectorAll('tbody tr').forEach(row=>row.querySelectorAll('td').forEach((td,i)=>td.classList.toggle('focus-col',i===0||i===idx)));
+    const box=document.getElementById('timingResults');
+    if(box){
+      let time='—';
+      if(target&&idx>=0)time=(target.querySelectorAll('td')[idx]?.textContent||'—').trim();
+      box.innerHTML='<div class="timing-title">🕌 '+day+' '+name+' — '+time+'</div>';
+      box.classList.add('show');
+    }
+    const banner=document.getElementById('focusBanner');
+    if(banner)banner.textContent='🔎 '+day+' '+name+' — Aaj ke chal rahe mahine mein';
+    if(target)target.scrollIntoView({behavior:'smooth',block:'center'}); else sec.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  function goToTodayPrayer(name){
+    const day=new Date().getDate();
+    goToDatePrayer(day,name);
+    const banner=document.getElementById('focusBanner');
+    if(banner)banner.textContent='🔎 Aaj ki tareekh — '+name;
+  }
+  window.quickPrayerSearch=function(name){goToTodayPrayer(name);};
+  window.datePrayerSearch=function(day,name){goToDatePrayer(day,name);};
+  window.clearSearch=function(){
+    const input=document.getElementById('searchBox'); if(input)input.value='';
+    document.body.classList.remove('focus-column-mode'); clearRowsOnly();
+    const banner=document.getElementById('focusBanner'); if(banner)banner.textContent='';
+    const box=document.getElementById('timingResults'); if(box){box.classList.remove('show');box.innerHTML='';}
+  };
+  window.filterTable=function(){
+    const input=document.getElementById('searchBox');
+    const raw=(input?.value||'').trim();
+    if(!raw){window.clearSearch();return;}
+    const q=clean(raw);
+    // Find the first date number (1-31) anywhere in the search text.
+    const tokens=q.split(' ');
+    let day=null, dayTokenIndex=-1;
+    for(let i=0;i<tokens.length;i++){const n=dateNumber(tokens[i]);if(n){day=n;dayTokenIndex=i;break;}}
+    const prayer=prayerFromText(q);
+    if(day&&prayer){goToDatePrayer(day,prayer);return;}
+    if(prayer){goToTodayPrayer(prayer);return;}
+
+    // Ordinary text search remains available.
+    document.body.classList.remove('focus-column-mode');
+    let firstMatch=null;
+    document.querySelectorAll('.month').forEach(sec=>{
+      const monthName=clean(sec.getAttribute('data-month')||sec.querySelector('h2')?.textContent||'');
+      let rowHit=false;
+      sec.querySelectorAll('tbody tr').forEach(row=>{
+        const ok=clean(row.textContent).includes(q)||monthName.includes(q);
+        row.style.display=ok?'':'none'; row.classList.toggle('search-hit',ok);
+        if(ok){rowHit=true;if(!firstMatch)firstMatch=row;}
+      });
+      sec.classList.toggle('hiddenMonth',!rowHit);
+    });
+    const banner=document.getElementById('focusBanner');if(banner)banner.textContent='🔎 Search: '+raw;
+    if(firstMatch)firstMatch.scrollIntoView({behavior:'smooth',block:'center'});
+  };
+  window.jumpMonth=window.jumpMonth||function(v){if(!v)return;window.clearSearch();const el=document.querySelector('.month[data-month="'+v+'"]');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});};
+})();
+</script>
+<style>
+.search-tools{position:sticky;top:0;z-index:20;flex-wrap:wrap;justify-content:center;box-shadow:0 3px 12px #0002}.searchbox{display:flex;align-items:center;gap:5px;border:2px solid #cbd5e1;border-radius:12px;background:#fff;padding:0 6px;min-width:260px;flex:1 1 300px}.searchbox input{border:0;outline:0;font-size:16px;font-weight:700;padding:9px;flex:1;min-width:100px;background:transparent;color:inherit}.searchbox .clearBtn{background:#eef2ff!important;color:#172033!important;padding:8px 11px!important}.search-tools select{border:2px solid #cbd5e1;border-radius:12px;padding:10px 12px;font-weight:800;background:#fff;color:#172033}.search-tools button{background:#173f91;color:#fff}.search-tools button:hover{transform:translateY(-1px)}.dark .searchbox,.dark .search-tools select{background:#111827;color:#f3f4f6;border-color:#4b5563}.dark .searchbox input{color:#f3f4f6}.dark .searchbox .clearBtn{background:#374151!important;color:#fff!important}.month.hiddenMonth{display:none}.month.hasNoMatch .noMatch{display:block}.month .noMatch{display:none;text-align:center;padding:12px;font-weight:800}.search-hit{outline:3px solid #f59e0b;outline-offset:-3px}@media(max-width:700px){.searchbox{min-width:100%;order:0}.search-tools select,.search-tools>button{flex:1;min-width:75px}.search-tools{position:sticky;top:0}.searchbox input{font-size:15px}}
+</style><style>/* Compact Important Information */
+.info-compact{padding:8px 10px!important;margin:8px 0!important}
+.info-compact h2{font-size:18px!important;margin:0 0 5px!important;padding:5px 9px!important}
+.info-compact .cols{gap:7px}
+.info-compact .cols>div{padding:8px 9px;border-radius:10px}
+.info-compact h3{font-size:12.5px!important;line-height:1.15!important;margin:2px 0 3px!important}
+.info-compact p{font-size:10.5px!important;line-height:1.2!important;margin:2px 0!important}
+@media(max-width:700px){.info-compact .cols{gap:5px}.info-compact .cols>div{padding:7px}.info-compact h3{font-size:11.5px!important}.info-compact p{font-size:10px!important;line-height:1.17!important}}
+</style>
+<style>
+/* Today highlight: keeps every original cell color intact */
+.today-row td{box-shadow:inset 0 0 0 4px #f0b429!important;position:relative;}
+.today-row td:first-child{box-shadow:inset 5px 0 0 #f0b429,inset 0 0 0 4px #f0b429!important;}
+</style>
+<style>table{font-weight:1200!important}thead th,tbody td{font-weight:1200!important;text-shadow:0.15px 0 #000} .today-row td{font-weight:1200!important;outline:2px solid currentColor;outline-offset:-2px}</style>
+<style id="beautiful-v16-style">
+:root{--v16-green:#075e3b;--v16-green2:#0b7a4b;--v16-gold:#d6a84f;--v16-cream:#fffaf0;--v16-ink:#17322a;--v16-soft:#edf7f1}
+body{background:linear-gradient(180deg,#f4fbf7 0%,#f8f5ec 100%);color:var(--v16-ink)}
+.hero.mosque-hero{box-shadow:0 12px 32px rgba(7,94,59,.16);border:1px solid rgba(214,168,79,.35);position:relative;overflow:hidden}
+.hero.mosque-hero:after{content:"✦  بِسْمِ اللّٰهِ  ✦";position:absolute;left:0;right:0;bottom:8px;text-align:center;font-size:12px;opacity:.8;letter-spacing:2px}
+.tools.search-tools{backdrop-filter:blur(10px);box-shadow:0 8px 24px rgba(20,50,40,.10);border-bottom:1px solid rgba(7,94,59,.12)}
+.tools.search-tools button,.tools.search-tools select,.tools.search-tools .navlink{border-radius:14px!important}
+.tools.search-tools button{background:linear-gradient(135deg,var(--v16-green),var(--v16-green2));box-shadow:0 4px 10px rgba(7,94,59,.16)}
+.searchbox{border-radius:14px!important}
+.card{border:1px solid rgba(7,94,59,.10);box-shadow:0 10px 28px rgba(24,64,48,.09);border-radius:20px!important;overflow:hidden}
+.card h2{color:var(--v16-green)}
+.today-dashboard{display:grid;grid-template-columns:1fr 1.7fr;gap:14px;margin:0 0 18px}
+.today-date-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:4px 0 0}.today-date-panel{min-width:0;padding:7px 8px;border-radius:12px;background:#ffffff16;border:1px solid #ffffff30;text-align:center}.today-date-label{font-size:10px;font-weight:900;opacity:.88}.today-hijri-date{font-size:22px;font-weight:1000;line-height:1.15;margin:5px 0 2px;direction:rtl}.today-hijri-note{font-size:9px;font-weight:800;opacity:.8;line-height:1.25}.today-date-pair .today-date{font-size:24px;margin:4px 0 1px}.today-date-pair .today-month{font-size:11px;line-height:1.25}.today-box,.today-times{background:linear-gradient(135deg,#075e3b,#0b7a4b);color:#fff;border-radius:20px;padding:18px;box-shadow:0 12px 28px rgba(7,94,59,.18);border:1px solid rgba(214,168,79,.45)}
+.today-box{display:flex;flex-direction:column;justify-content:center;min-height:0;height:100%;box-sizing:border-box;padding:12px}.today-box .today-note{margin-top:6px}.today-box .today-actions{margin-top:8px;gap:6px}.today-box .today-action{padding:7px 9px;font-size:12px}
+.today-kicker{font-size:13px;opacity:.86;font-weight:700;letter-spacing:.6px}.today-date{font-size:30px;font-weight:900;margin:5px 0}.today-month{font-size:17px;font-weight:700}.today-note{margin-top:10px;font-size:12px;opacity:.86}
+.today-times-title{font-size:18px;font-weight:900;margin-bottom:10px}.today-table-wrap{overflow:auto;border-radius:14px}.today-table{width:100%;border-collapse:collapse;min-width:620px}.today-table th{background:rgba(255,255,255,.14);font-size:12px;padding:8px 6px}.today-table td{background:rgba(255,255,255,.08);padding:10px 6px;text-align:center;font-weight:800;border-top:1px solid rgba(255,255,255,.12)}
+.today-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.today-action{border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:#fff;border-radius:12px;padding:9px 12px;font-weight:800;cursor:pointer}.today-action:hover{background:rgba(255,255,255,.2)}
+.today-row{outline:3px solid var(--v16-gold)!important;outline-offset:-3px!important;background:#fff4c9!important;box-shadow:inset 0 0 0 9999px rgba(255,224,120,.16)!important;position:relative}
+.today-row td:first-child{font-weight:900;color:#7a5200!important}
+.v16-fab{position:fixed;right:16px;bottom:18px;z-index:9999;border:0;border-radius:999px;padding:13px 17px;background:linear-gradient(135deg,var(--v16-green),var(--v16-green2));color:#fff;font-weight:900;box-shadow:0 10px 25px rgba(0,0,0,.2);cursor:pointer}.v16-fab:active{transform:scale(.96)}
+.dark{background:#0e1713!important;color:#e8f3ed}.dark .card{background:#15231d;border-color:#2b4a3d}.dark .today-row{background:#4c411d!important}.dark .today-box,.dark .today-times{box-shadow:none}.dark .v16-fab{background:#d6a84f;color:#1d241e}
+@media(max-width:760px){.today-dashboard{grid-template-columns:1fr}.today-date-pair{grid-template-columns:1fr 1fr;gap:6px}.today-hijri-date{font-size:19px}.today-date-pair .today-date{font-size:22px}.today-box{min-height:125px}.today-date{font-size:27px}.today-times{padding:14px}.today-table{min-width:560px}.v16-fab{right:12px;bottom:12px;padding:12px 15px}}
+@media print{.today-dashboard,.v16-fab{display:none!important}}
+</style>
+<style id="month-readability-fix">
+.month, .month h2, .month-title, .month-name, .month-header {
+  color:#123b2a !important;
+  background:#fffdf4 !important;
+  text-shadow:none !important;
+  font-weight:900 !important;
+  opacity:1 !important;
+  border-color:#c9a227 !important;
+}
+.month h2, .month-title, .month-name, .month-header {
+  font-size:clamp(20px,5vw,30px) !important;
+  line-height:1.25 !important;
+  padding:10px 14px !important;
+  border:2px solid #c9a227 !important;
+  border-radius:12px !important;
+  box-shadow:0 3px 10px rgba(0,0,0,.08) !important;
+}
+@media(max-width:600px){
+  .month h2, .month-title, .month-name, .month-header {font-size:21px !important;padding:9px 10px !important;}
+}
+.dark .month, .dark .month h2, .dark .month-title, .dark .month-name, .dark .month-header {
+  color:#fff8d6 !important; background:#173d2d !important;
+}
+</style>
+<style id="sunset-top-fix">
+.sunset-highlight{margin:0 0 18px;background:linear-gradient(135deg,#7a3f00,#c87512 55%,#f0b429);color:#fff;border-radius:22px;padding:18px 20px;box-shadow:0 12px 28px rgba(122,63,0,.22);border:2px solid #f7d77a;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.sunset-highlight .sunset-label{font-size:15px;font-weight:900;letter-spacing:.8px}.sunset-highlight .sunset-time{font-size:42px;font-weight:1000;line-height:1;text-shadow:0 2px 3px #0005}.sunset-highlight .sunset-note{font-size:12px;font-weight:700;opacity:.95;margin-top:5px}.sunset-highlight .sunset-icon{font-size:42px}
+.dark .sunset-highlight{background:linear-gradient(135deg,#5b3508,#8a5b10);border-color:#d6a84f}
+@media(max-width:600px){.sunset-highlight{padding:15px 16px}.sunset-highlight .sunset-time{font-size:36px}.sunset-highlight .sunset-icon{font-size:34px}}
+</style>
+<style id="v30-circle-state-style">
+.preprayer-circle.active-now{box-shadow:0 0 0 5px rgba(214,168,79,.22),0 7px 24px #0005,inset 0 0 0 3px #b97808!important;transform:scale(1.035);}
+.preprayer-circle.next-up{box-shadow:0 0 0 3px rgba(23,63,145,.16),0 5px 18px #0004,inset 0 0 0 3px #b97808!important;}
+.preprayer-circle .preprayer-state{font-size:8px;font-weight:1000;letter-spacing:.4px;margin-top:3px;opacity:.78;}
+@media(max-width:600px){.preprayer-circle .preprayer-state{font-size:7px}}
+</style>
+<style id="round-pre-prayer-style">
+.sunset-highlight .preprayer-circle{width:124px;height:124px;min-width:124px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle at 35% 30%,#fff8d6 0,#ffe59a 28%,#d69b19 70%,#8a5400 100%);color:#3d2500;border:4px solid #fff1b0;box-shadow:0 5px 18px #0004,inset 0 0 0 3px #b97808;animation:prePrayerPulse .95s ease-in-out infinite 2.8s ease-in-out infinite;flex-shrink:0}
+.preprayer-small{font-size:9px;font-weight:1000;letter-spacing:.5px}.preprayer-name{font-size:14px;font-weight:1000;margin-top:1px}.preprayer-time{font-size:22px;font-weight:1000;line-height:1.05;margin-top:2px}
+@keyframes prePrayerPulse{0%,100%{transform:scale(1) rotate(0deg)}25%{transform:scale(1.025) rotate(-1deg)}50%{transform:scale(1.045) rotate(0deg)}75%{transform:scale(1.025) rotate(1deg)}}
+.dark .sunset-highlight .preprayer-circle{background:radial-gradient(circle at 35% 30%,#fff1a8 0,#d99b1d 55%,#744300 100%);color:#241500;border-color:#ffe69a}
+@media(max-width:600px){.sunset-highlight .preprayer-circle{width:106px;height:106px;min-width:106px}.preprayer-time{font-size:19px}.preprayer-name{font-size:12px}.preprayer-small{font-size:8px}.sunset-highlight{gap:9px}}
+</style>
+<style id="quick-prayer-search-style">
+.quick-prayer-search{width:100%;display:flex;flex-wrap:wrap;gap:7px;justify-content:center;align-items:center;margin-top:7px;padding:7px 0 2px}
+.quick-prayer-search .quick-label{font-weight:900;color:#075e3b;font-size:13px;margin-right:2px}
+.quick-prayer-search button{border:1px solid #d6a84f!important;background:#fffaf0!important;color:#17322a!important;padding:7px 11px!important;border-radius:999px!important;font-size:13px!important;font-weight:900!important;box-shadow:0 2px 6px #0001}
+.quick-prayer-search button:hover{transform:translateY(-1px);background:#eaf7ef!important}
+.dark .quick-prayer-search .quick-label{color:#d1fae5}
+.dark .quick-prayer-search button{background:#172b24!important;color:#fff!important;border-color:#d6a84f!important}
+.focus-column-mode .month table th:not(.focus-col),.focus-column-mode .month table td:not(.focus-col){display:none}
+.focus-column-mode .month table th.focus-col,.focus-column-mode .month table td.focus-col{display:table-cell}
+.focus-column-mode .month table{min-width:0!important;width:100%!important}
+.focus-column-mode .month .scroll{overflow-x:hidden!important}
+.focus-banner{display:none;margin:8px 0 12px;padding:10px 14px;border-radius:14px;background:linear-gradient(135deg,#075e3b,#0b7a4b);color:#fff;text-align:center;font-weight:900;box-shadow:0 5px 15px #0002}
+.focus-column-mode .focus-banner{display:block}
+.date-search-hint{width:100%;text-align:center;font-size:12px;font-weight:800;color:#075e3b;margin-top:2px}.dark .date-search-hint{color:#bbf7d0}
+@media(max-width:700px){.quick-prayer-search{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:5px}.quick-prayer-search .quick-label{position:sticky;left:0;background:#fffaf0;padding:6px;border-radius:8px;z-index:1}.dark .quick-prayer-search .quick-label{background:#172b24}.quick-prayer-search button{white-space:nowrap}}
+</style>
+<style id="v43-time-fix">
+/* V42: give native time controls enough room so AM/PM never gets clipped */
+.azaan-jamaat-box{overflow:visible!important}
+.timing-row{display:grid!important;grid-template-columns:repeat(5,minmax(82px,1fr))!important;min-width:410px!important;gap:5px!important;width:100%!important}
+.timing-row label{min-width:82px!important;width:82px!important;overflow:visible!important}
+.timing-row input[type="time"]{width:82px!important;min-width:82px!important;max-width:82px!important;height:32px!important;padding:3px 2px!important;box-sizing:border-box!important;font-size:12px!important;overflow:visible!important}
+input[type=time]::-webkit-datetime-edit-fields-wrapper{display:flex!important;justify-content:center!important;align-items:center!important;width:100%!important;padding:0!important}
+input[type=time]::-webkit-datetime-edit-hour-field,input[type=time]::-webkit-datetime-edit-minute-field,input[type=time]::-webkit-datetime-edit-ampm-field{padding:0 2px!important;font-size:12px!important;min-width:auto!important}
+input[type=time]::-webkit-datetime-edit-text{padding:0 2px!important}
+@media(max-width:600px){
+ .azaan-jamaat-box{overflow-x:auto!important;overflow-y:hidden!important;-webkit-overflow-scrolling:touch!important}
+ .timing-row{min-width:410px!important;grid-template-columns:repeat(5,82px)!important;gap:5px!important}
+ .timing-row label{width:82px!important;min-width:82px!important;font-size:9px!important}
+ .timing-row input[type="time"]{width:82px!important;min-width:82px!important;max-width:82px!important;font-size:12px!important;padding:3px 2px!important}
+ input[type=time]::-webkit-datetime-edit-hour-field,input[type=time]::-webkit-datetime-edit-minute-field,input[type=time]::-webkit-datetime-edit-ampm-field{font-size:12px!important;padding:0 2px!important}
+ input[type=time]::-webkit-datetime-edit-text{padding:0 2px!important}
+}
+</style>
+<style id="v43-no-scroll-ampm-fix">
+/* V43: keep all five prayer boxes visible on mobile; prevent Isha horizontal scrolling and AM/PM clipping */
+.azaan-jamaat-box{overflow:visible!important;}
+.timing-row{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:2px!important;width:100%!important;min-width:0!important;}
+.timing-row label{min-width:0!important;width:100%!important;font-size:9px!important;}
+.timing-row input[type="time"]{width:100%!important;min-width:0!important;max-width:none!important;height:31px!important;box-sizing:border-box!important;padding:2px 0!important;font-size:9px!important;letter-spacing:-.35px!important;}
+input[type=time]::-webkit-datetime-edit-fields-wrapper{width:100%!important;padding:0!important;justify-content:center!important;}
+input[type=time]::-webkit-datetime-edit-hour-field,input[type=time]::-webkit-datetime-edit-minute-field,input[type=time]::-webkit-datetime-edit-ampm-field{font-size:9px!important;padding:0!important;letter-spacing:-.4px!important;}
+input[type=time]::-webkit-datetime-edit-text{padding:0!important;}
+@media(max-width:600px){
+ .azaan-jamaat-box{overflow:visible!important;padding-left:3px!important;padding-right:3px!important;}
+ .timing-row{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:2px!important;min-width:0!important;width:100%!important;overflow:visible!important;}
+ .timing-row label{width:100%!important;min-width:0!important;font-size:8px!important;}
+ .timing-row input[type="time"]{width:100%!important;min-width:0!important;max-width:none!important;font-size:9px!important;padding:2px 0!important;}
+ input[type=time]::-webkit-datetime-edit-hour-field,input[type=time]::-webkit-datetime-edit-minute-field,input[type=time]::-webkit-datetime-edit-ampm-field{font-size:9px!important;padding:0!important;}
+}
+</style>
+<style id="v47-month-jump-fix">
+#monthJump{min-width:150px!important;width:150px!important;box-sizing:border-box!important;padding-left:8px!important;padding-right:8px!important;}
+@media(max-width:700px){#monthJump{min-width:145px!important;width:145px!important;font-size:13px!important;}}
+</style>
+<style id="remove-arrows-enlarge-circle">
+/* Arrows removed; prayer circle made larger */
+.sunset-with-side-arrows .sunset-circle-controls{gap:0;}
+.sunset-with-side-arrows .preprayer-circle{
+  width:112px !important;
+  height:112px !important;
+  min-width:112px !important;
+  min-height:112px !important;
+  border-radius:50% !important;
+}
+@media(max-width:600px){
+  .sunset-with-side-arrows .preprayer-circle{
+    width:104px !important;
+    height:104px !important;
+    min-width:104px !important;
+    min-height:104px !important;
+  }
+}
+</style>
+<style id="v56-sunset-finetune">
+/* V56: balanced visiting-card sunset panel, mobile safe */
+.sunset-with-side-arrows{padding-right:0!important;}
+.sunset-with-side-arrows .sunset-highlight{
+  width:100%!important;
+  min-height:0!important;
+  padding-top:20px!important;
+  padding-bottom:20px!important;
+  padding-left:16px!important;
+  padding-right:16px!important;
+  box-sizing:border-box!important;
+}
+.sunset-with-side-arrows .sunset-label{
+  transform:translateY(-5px);
+  white-space:nowrap!important;
+}
+.sunset-with-side-arrows .sunset-time{
+  transform:translateY(0);
+}
+.sunset-with-side-arrows .sunset-note{
+  transform:translateY(5px);
+}
+.sunset-with-side-arrows .sunset-circle-controls{
+  margin-right:4px!important;
+}
+.sunset-with-side-arrows .preprayer-circle{
+  width:112px!important;
+  height:112px!important;
+  flex:0 0 112px!important;
+}
+@media(max-width:600px){
+  .sunset-with-side-arrows .sunset-highlight{
+    padding-top:18px!important;
+    padding-bottom:18px!important;
+    padding-left:12px!important;
+    padding-right:12px!important;
+  }
+  .sunset-with-side-arrows .sunset-label{
+    font-size:clamp(12px,3.4vw,16px)!important;
+    transform:translateY(-4px);
+  }
+  .sunset-with-side-arrows .sunset-note{transform:translateY(4px);}
+  .sunset-with-side-arrows .sunset-circle-controls{margin-right:2px!important;}
+  .sunset-with-side-arrows .preprayer-circle{
+    width:104px!important;
+    height:104px!important;
+    flex-basis:104px!important;
+  }
+}
+</style>
+<style id="v63-extra-tools-style">
+.extra-tools-card{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:stretch;margin:0 0 14px;padding:10px;border-radius:18px;background:linear-gradient(135deg,#fffaf0,#eefaf4);border:2px solid #d7c38a;box-shadow:0 6px 18px #0001;box-sizing:border-box}
+.extra-tools-card>div{border-radius:14px;padding:8px 10px;text-align:center;background:#fff;border:1px solid #d8e5d8;box-sizing:border-box}
+.extra-kicker{font-size:11px;font-weight:900;color:#075e3b;letter-spacing:.3px}.live-clock-box #liveClock{font-size:25px;font-weight:1000;color:#173f91;line-height:1.05}.live-clock-box #liveDate{font-size:12px;font-weight:800;margin-top:4px;color:#555}.next-prayer-box #livePrayerName{font-size:20px;font-weight:1000;color:#075e3b;line-height:1.1}.next-prayer-box #livePrayerTime{font-size:21px;font-weight:1000;color:#6b3d00}.next-prayer-box #livePrayerNote{font-size:11px;font-weight:800;color:#666}.share-page-btn{border:0;border-radius:14px;padding:10px 13px;background:#173f91;color:#fff;font-weight:900;cursor:pointer;min-width:72px}.share-page-btn:active{transform:scale(.97)}
+.dark .extra-tools-card{background:#111827;border-color:#4b5563}.dark .extra-tools-card>div{background:#172b24;border-color:#2f6b51}.dark .live-clock-box #liveDate,.dark .next-prayer-box #livePrayerNote{color:#d1d5db}
+@media(max-width:600px){.today-dashboard{grid-template-columns:1fr;gap:8px}.today-box{min-height:0;padding:10px 12px;border-radius:14px}.today-kicker{font-size:11px}.today-date{font-size:24px;margin:3px 0}.today-month{font-size:14px}.today-note{font-size:11px}.today-actions{margin-top:6px}.today-action{padding:6px 8px;font-size:11px}.today-dashboard .today-times{border-radius:14px;padding:10px}.extra-tools-card{grid-template-columns:1fr 1fr;gap:7px;padding:7px}.extra-tools-card>div{padding:7px 5px}.live-clock-box #liveClock{font-size:21px}.next-prayer-box #livePrayerName{font-size:17px}.next-prayer-box #livePrayerTime{font-size:18px}.share-page-btn{grid-column:1/-1;width:100%;height:38px;padding:5px}}
+</style>
+<style id="smart-bottom-nav-fix">
+.smart-bottom-nav{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:10000;display:flex;gap:6px;padding:5px;background:rgba(255,255,255,.94);border:1px solid #d6ad45;border-radius:999px;box-shadow:0 6px 18px #0003;backdrop-filter:blur(8px)}
+.smart-bottom-nav button{border:0;border-radius:999px;padding:9px 14px;background:#173f91;color:#fff;font-weight:900;font-size:13px;cursor:pointer;white-space:nowrap}
+.smart-bottom-nav button:active{transform:scale(.96)}
+.dark .smart-bottom-nav{background:rgba(17,24,39,.94);border-color:#b8943f}
+@media(max-width:600px){.smart-bottom-nav{bottom:9px;padding:4px;gap:4px}.smart-bottom-nav button{padding:8px 12px;font-size:12px}}
+@media print{.smart-bottom-nav{display:none!important}}
+</style>
+<style id="smart-muazzin-v2-compact">
+/* V2: remove the large Next Prayer card and make English prayer names compact/horizontal */
+#v65NextPrayer,.next-prayer-card{display:none!important}
+#azaanJamaatBox .timing-row label{
+  flex-direction:row!important;
+  white-space:nowrap!important;
+  writing-mode:horizontal-tb!important;
+  transform:none!important;
+  font-size:8px!important;
+  line-height:1!important;
+  gap:2px!important;
+  letter-spacing:-.15px!important;
+}
+#azaanJamaatBox .timing-row{gap:2px!important}
+#azaanJamaatBox .timing-row input[type="time"]{height:29px!important;font-size:8.5px!important}
+thead th{writing-mode:horizontal-tb!important;transform:none!important;white-space:nowrap!important;font-size:12px!important;padding:6px 4px!important;line-height:1.05!important}
+@media(max-width:600px){
+  #azaanJamaatBox .timing-row label{font-size:6.5px!important;letter-spacing:-.3px!important;gap:1px!important}
+  #azaanJamaatBox .timing-row input[type="time"]{height:28px!important;font-size:8px!important}
+  thead th{font-size:10px!important;padding:5px 2px!important}
+}
+</style>
+<style id="smart-design-v3">
+/* Smart Muazzin compact modern layout */
+.extra-tools-card{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr) auto!important;gap:8px!important;align-items:stretch!important;margin:10px 0!important;padding:9px!important;border-radius:16px!important}
+.live-clock-box,.next-prayer-box{min-height:0!important;padding:8px 10px!important;border-radius:12px!important}
+.extra-kicker{font-size:10px!important;letter-spacing:.4px!important}
+#liveClock{font-size:21px!important;font-weight:900!important;line-height:1.05!important}
+#liveDate,#livePrayerTime,#livePrayerNote{font-size:11px!important;line-height:1.2!important}
+#livePrayerName{font-size:17px!important;font-weight:900!important;line-height:1.1!important}
+.share-page-btn{padding:8px 10px!important;border-radius:12px!important;font-size:12px!important;white-space:nowrap!important}
+.mosque-hero{margin-top:8px!important;border-radius:18px!important;overflow:hidden!important}
+.mosque-hero .hero-title{padding:8px 10px!important}
+.mosque-hero .arabic-title{font-size:18px!important;line-height:1.25!important}
+.mosque-hero .hero-sub{font-size:10px!important;letter-spacing:.6px!important}
+.info-compact{margin-top:9px!important}
+@media(max-width:650px){
+ .extra-tools-card{grid-template-columns:1fr 1.15fr!important}
+ .share-page-btn{grid-column:1/-1!important;width:100%!important}
+ #liveClock{font-size:19px!important}
+ #livePrayerName{font-size:15px!important}
+ .mosque-hero .arabic-title{font-size:16px!important}
+}
+</style>
+<style id="smart-today-compact">
+/* Compact mobile-friendly Aaj Ki Tareekh box */
+.today-box{min-height:auto!important;padding:11px 12px!important;border-radius:14px!important;gap:4px!important}
+.today-kicker{text-align:center!important;font-size:13px!important;font-weight:900!important;letter-spacing:.3px!important;margin-bottom:3px!important}
+.today-date{text-align:center!important;font-size:24px!important;font-weight:1000!important;line-height:1.1!important;margin:2px 0!important}
+.today-month{text-align:center!important;font-size:13px!important;font-weight:800!important;line-height:1.25!important}
+.today-note{text-align:center!important;font-size:10px!important;line-height:1.25!important;margin:3px 0!important;opacity:.9}
+.today-actions{display:flex!important;justify-content:center!important;gap:6px!important;margin-top:4px!important}
+.today-action{padding:6px 9px!important;font-size:11px!important;border-radius:8px!important}
+@media(max-width:600px){.today-box{padding:9px 10px!important}.today-date{font-size:22px!important}.today-month{font-size:12px!important}.today-note{font-size:9px!important}.today-action{padding:5px 8px!important;font-size:10px!important}}
+</style>
+<style id="smart-compact-table-v2">
+/* Balanced compact spacing for the 12-month timetable */
+.month .scroll table th,
+.month .scroll table td{
+  padding:5px 5px !important;
+  line-height:1.2 !important;
+}
+.month .scroll table th:first-child,
+.month .scroll table td:first-child{
+  padding-left:7px !important;
+  padding-right:7px !important;
+  min-width:38px;
+  font-weight:800;
+}
+@media (max-width:600px){
+  .month .scroll table th,
+  .month .scroll table td{
+    padding:5px 4px !important;
+  }
+  .month .scroll table th:first-child,
+  .month .scroll table td:first-child{
+    padding-left:6px !important;
+    padding-right:6px !important;
+    min-width:34px;
+  }
+}
+</style>
+<style id="smart-polish-v71">
+/* Smart Muazzin V71 — readability polish */
+body{line-height:1.35;}
+button,select,input{font-family:inherit;}
+button{min-height:36px;}
+.quick-prayer-search{gap:5px!important;}
+.quick-prayer-search button{padding:7px 10px!important;font-size:13px!important;border-radius:9px!important;}
+table{font-size:13px!important;}
+th,td{padding:6px 6px!important;}
+thead th{font-weight:800!important;line-height:1.2!important;}
+tbody td:first-child{font-weight:700;}
+.month h2{line-height:1.2!important;}
+.searchbox input{font-size:14px!important;}
+#monthJump{font-size:14px!important;font-weight:800!important;}
+@media(max-width:600px){
+  body{font-size:14px;}
+  table{font-size:12.5px!important;}
+  th,td{padding:5px 5px!important;}
+  .quick-prayer-search button{font-size:12px!important;padding:6px 9px!important;}
+  .month h2{font-size:18px!important;}
+}
+</style>
+<style id="v73-search-and-month-font-fix">
+/* V73: keep font controls only inside each month heading; remove any global/top font boxes */
+.global-font-controls,.font-controls,.font-size-controls,.page-font-controls,.top-font-controls,.global-text-size{display:none!important;}
+.tools.search-tools .font-size-controls,.tools.search-tools .global-font-controls,.tools.search-tools .page-font-controls{display:none!important;}
+.month-font-controls{display:flex!important;align-items:center!important;}
+</style>
+<style id="v8-top-date-pair-style">
+.daily-date-row{padding:8px 12px!important;}
+.daily-date-pair-top{display:flex;justify-content:center;align-items:stretch;gap:10px;flex-wrap:wrap;}
+.daily-date-main{display:flex;align-items:center;justify-content:center;gap:7px;min-width:0;padding:3px 10px;font-size:22px;font-weight:900;line-height:1.15;}
+.daily-date-label-top{font-size:13px;font-weight:800;opacity:.95;}
+.daily-date-hijri-top{border-left:2px solid #ffffff66;padding-left:14px;}
+#dailyTableHijriDate{direction:rtl;}
+@media(max-width:600px){
+  .daily-date-pair-top{gap:4px;}
+  .daily-date-main{font-size:18px;padding:3px 6px;gap:5px;}
+  .daily-date-label-top{font-size:10px;}
+  .daily-date-hijri-top{padding-left:7px;}
+}
+</style>
+<link href="manifest-v158.webmanifest" rel="manifest"/><meta content="#173f91" name="theme-color"/><meta content="156" name="application-version"/><meta content="HTML FILE MAIN - Muazzin Ka Kaam.html" name="application-base"/><meta content="true" name="application-pwa"/><meta content="yes" name="mobile-web-app-capable"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="default" name="apple-mobile-web-app-status-bar-style"/><style id="muazzin-v36-mobile">html{scroll-padding-top:96px;}button,a,input,select,textarea{touch-action:manipulation;}@media(max-width:600px){body{overflow-x:hidden}.month{scroll-margin-top:96px}}</style><style id="v37-clean-circle-style">.next-prayer-box{display:none!important}.preprayer-circle .preprayer-state{display:none!important}</style><style id="v38-live-prayer-cleanup">
+#livePrayerNote{display:none!important}
+.next-prayer-box #livePrayerName,.next-prayer-box #livePrayerTime{display:block}
+</style>
+<style id="v53-live-time-side-fix">
+.next-prayer-box{display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:center!important;gap:2px!important;}
+.next-prayer-box .live-prayer-line{display:flex;align-items:baseline;justify-content:center;gap:9px;flex-wrap:nowrap;width:100%;}
+.next-prayer-box #livePrayerName{display:inline-block!important;font-size:18px!important;font-weight:1000!important;line-height:1.1!important;white-space:nowrap!important;}
+.next-prayer-box #livePrayerTime{display:inline-block!important;font-size:18px!important;font-weight:1000!important;color:#6b3d00!important;line-height:1.1!important;white-space:nowrap!important;}
+.next-prayer-box #livePrayerNote{font-size:10px!important;line-height:1.1!important;}
+@media(max-width:600px){.next-prayer-box .live-prayer-line{gap:7px}.next-prayer-box #livePrayerName,.next-prayer-box #livePrayerTime{font-size:15px!important}.next-prayer-box #livePrayerNote{font-size:9px!important}}
+</style>
+<style id="v57-live-layout-final">
+/* V57 FINAL: restore the complete Live Time + ABHI/AGLI NAMAZ layout. */
+.extra-tools-card{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr) auto!important;gap:8px!important;align-items:stretch!important;margin:10px 0 14px!important;padding:9px!important;border-radius:16px!important;box-sizing:border-box!important;}
+.live-clock-box,.next-prayer-box{display:block!important;min-height:0!important;padding:8px 10px!important;border-radius:12px!important;text-align:center!important;box-sizing:border-box!important;}
+.extra-tools-card .extra-kicker{display:block!important;font-size:10px!important;font-weight:900!important;line-height:1.2!important;letter-spacing:.4px!important;}
+.live-clock-box #liveClock{display:block!important;font-size:21px!important;font-weight:900!important;line-height:1.05!important;}
+.live-clock-box #liveDate{display:block!important;font-size:11px!important;line-height:1.2!important;margin-top:4px!important;}
+.next-prayer-box #livePrayerName{display:block!important;font-size:17px!important;font-weight:900!important;line-height:1.1!important;white-space:normal!important;}
+.next-prayer-box #livePrayerTime{display:block!important;font-size:18px!important;font-weight:1000!important;line-height:1.1!important;white-space:normal!important;color:#6b3d00!important;}
+.next-prayer-box #livePrayerNote{display:block!important;font-size:10px!important;font-weight:800!important;line-height:1.2!important;margin-top:2px!important;}
+.next-prayer-box .live-prayer-line{display:block!important;width:auto!important;}
+.share-page-btn{display:block!important;padding:8px 10px!important;border-radius:12px!important;font-size:12px!important;white-space:nowrap!important;}
+@media(max-width:650px){
+  .extra-tools-card{grid-template-columns:1fr 1.15fr!important;gap:7px!important;padding:7px!important;}
+  .live-clock-box,.next-prayer-box{padding:8px 8px!important;}
+  .live-clock-box #liveClock{font-size:19px!important;}
+  .next-prayer-box #livePrayerName{font-size:15px!important;}
+  .next-prayer-box #livePrayerTime{font-size:17px!important;}
+  .next-prayer-box #livePrayerNote{font-size:9px!important;}
+  .share-page-btn{grid-column:1/-1!important;width:100%!important;}
+}
+</style>
+<style id="v60-live-exact-final">
+/* V59: preserve exact Live Time + ABHI/AGLI NAMAZ layout; restore live note from the verified pre-PWA MAIN. */
+.extra-tools-card{display:grid!important;grid-template-columns:1fr 1fr auto!important;gap:10px!important;align-items:stretch!important;margin:0 0 14px!important;padding:10px!important;border-radius:18px!important;background:linear-gradient(135deg,#fffaf0,#eefaf4)!important;border:2px solid #d7c38a!important;box-shadow:0 6px 18px #0001!important;box-sizing:border-box!important;}
+.extra-tools-card>div{display:block!important;border-radius:14px!important;padding:8px 10px!important;text-align:center!important;background:#fff!important;border:1px solid #d8e5d8!important;box-sizing:border-box!important;}
+.extra-tools-card .extra-kicker{display:block!important;font-size:11px!important;font-weight:900!important;color:#075e3b!important;letter-spacing:.3px!important;}
+.live-clock-box #liveClock{display:block!important;font-size:25px!important;font-weight:1000!important;color:#173f91!important;line-height:1.05!important;}
+.live-clock-box #liveDate{display:block!important;font-size:12px!important;font-weight:800!important;margin-top:4px!important;color:#555!important;}
+.next-prayer-box #livePrayerName{display:block!important;font-size:20px!important;font-weight:1000!important;color:#075e3b!important;line-height:1.1!important;white-space:normal!important;}
+.next-prayer-box #livePrayerTime{display:block!important;font-size:21px!important;font-weight:1000!important;color:#6b3d00!important;line-height:1.1!important;white-space:normal!important;}
+.next-prayer-box #livePrayerNote{display:block!important;font-size:11px!important;font-weight:800!important;color:#666!important;line-height:1.1!important;margin-top:2px!important;}
+.share-page-btn{display:block!important;border:0!important;border-radius:14px!important;padding:10px 13px!important;background:#173f91!important;color:#fff!important;font-weight:900!important;cursor:pointer!important;min-width:72px!important;white-space:nowrap!important;}
+@media(max-width:600px){.extra-tools-card{grid-template-columns:1fr 1fr!important;gap:7px!important;padding:7px!important}.extra-tools-card>div{padding:7px 5px!important}.live-clock-box #liveClock{font-size:21px!important}.next-prayer-box #livePrayerName{font-size:17px!important}.next-prayer-box #livePrayerTime{font-size:18px!important}.next-prayer-box #livePrayerNote{font-size:9px!important}.share-page-btn{grid-column:1/-1!important;width:100%!important;height:38px!important;padding:5px!important}}
+</style>
+<style id="v110-month-name-visibility">
+.month-heading{width:100%;box-sizing:border-box;overflow:visible!important;}
+.month-heading-name{display:block!important;flex:1 1 auto!important;min-width:0!important;white-space:nowrap!important;overflow:visible!important;text-overflow:clip!important;text-align:center!important;line-height:1.25!important;}
+@media(max-width:600px){.month-heading{gap:4px!important;}.month-heading-name{font-size:clamp(15px,4.7vw,20px)!important;letter-spacing:0!important;}.month-font-controls{flex:0 0 auto!important;}}
+</style><style id="v110-september-heading-fix">
+/* Keep the current-month badge from taking space away from the month name. */
+.month.v27-current-month .month-heading{position:relative!important;padding-right:96px!important;}
+.month.v27-current-month .month-heading::after{position:absolute!important;right:8px!important;top:50%!important;transform:translateY(-50%)!important;margin-left:0!important;white-space:nowrap!important;}
+.month.v27-current-month .month-heading-name{width:100%!important;overflow:visible!important;text-overflow:clip!important;white-space:nowrap!important;}
+@media(max-width:600px){
+  .month.v27-current-month .month-heading{padding-right:78px!important;}
+  .month.v27-current-month .month-heading::after{right:5px!important;font-size:8px!important;padding:2px 5px!important;}
+  .month.v27-current-month .month-heading-name{font-size:clamp(15px,4.8vw,20px)!important;}
+}
+</style>
+<style id="v110-current-month-badge-above">
+/* Put the current-month label above the month heading, centered, so long names such as SEPTEMBER stay clear. */
+.month.v27-current-month .month-heading{position:relative!important;padding-top:30px!important;padding-right:0!important;overflow:visible!important;}
+.month.v27-current-month .month-heading::after{position:absolute!important;top:0!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;margin:0!important;white-space:nowrap!important;display:block!important;width:max-content!important;}
+.month.v27-current-month .month-heading-name{width:auto!important;flex:1 1 auto!important;min-width:0!important;text-align:center!important;overflow:visible!important;text-overflow:clip!important;white-space:nowrap!important;}
+@media(max-width:600px){
+  .month.v27-current-month .month-heading{padding-top:26px!important;padding-right:0!important;}
+  .month.v27-current-month .month-heading::after{font-size:9px!important;padding:2px 6px!important;left:50%!important;right:auto!important;}
+}
+</style>
+<style id="v110-current-month-badge-size-position">
+/* Slightly larger current-month label, lowered a little so it stays clear of the border. */
+.month.v27-current-month .month-heading::after{
+  font-size:11px!important;
+  padding:3px 8px!important;
+  top:4px!important;
+}
+@media(max-width:600px){
+  .month.v27-current-month .month-heading::after{
+    font-size:10px!important;
+    padding:2px 7px!important;
+    top:3px!important;
+  }
+}
+</style>
+<style id="v110-current-month-controls">
+/* Keep the current-month label above; keep September's A− / A+ in the same heading position as every other month. */
+.month.v27-current-month .month-heading{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;padding-top:30px!important;padding-right:8px!important;box-sizing:border-box!important;}
+.month.v27-current-month .month-heading-name{flex:1 1 auto!important;min-width:0!important;width:auto!important;text-align:center!important;white-space:nowrap!important;overflow:visible!important;text-overflow:clip!important;}
+.month.v27-current-month .month-font-controls{display:flex!important;flex:0 0 auto!important;align-items:center!important;position:static!important;margin:0!important;}
+.month.v27-current-month .month-heading::after{top:4px!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;}
+@media(max-width:600px){
+  .month.v27-current-month .month-heading{gap:4px!important;padding-top:28px!important;padding-right:4px!important;}
+  .month.v27-current-month .month-font-controls{flex:0 0 auto!important;}
+  .month.v27-current-month .month-heading-name{font-size:clamp(15px,4.8vw,20px)!important;}
+}
+</style>
+<style id="v114-beautiful-time-picker-style">
+.time-input-clock{cursor:pointer!important;border-radius:10px!important;outline:none!important;box-shadow:inset 0 0 0 1px #0002!important}
+.time-input-clock:focus{box-shadow:inset 0 0 0 2px #174ea6,0 0 0 2px #174ea633!important}
+.clock-picker-backdrop{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:14px;box-sizing:border-box}
+.clock-picker{width:min(390px,100%);max-height:min(92vh,700px);overflow:auto;background:linear-gradient(145deg,#fff,#eef5ff);border:3px solid #174ea6;border-radius:24px;box-shadow:0 20px 60px #0007;padding:15px;box-sizing:border-box;color:#172033}
+.clock-picker-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}.clock-picker-title{font-size:18px;font-weight:1000}.clock-picker-close{border:0;background:#e8eef8;color:#173f91;border-radius:50%;width:34px;height:34px;font-size:21px;font-weight:1000}
+.clock-display{display:flex;align-items:center;justify-content:center;gap:7px;margin:8px 0 12px}.clock-display-part{min-width:76px;padding:9px 8px;border-radius:14px;background:#173f91;color:#fff;text-align:center;font-size:28px;font-weight:1000;line-height:1}.clock-display-part.active{box-shadow:0 0 0 3px #d6a84f}.clock-display-sep{font-size:28px;font-weight:1000;color:#173f91}.clock-ap{display:flex;gap:6px;margin-left:3px}.clock-ap button{border:2px solid #174ea6;background:#fff;color:#174ea6;border-radius:11px;padding:8px 10px;font-weight:1000}.clock-ap button.active{background:#174ea6;color:#fff}
+.clock-face{width:230px;height:230px;margin:8px auto 12px;border-radius:50%;background:radial-gradient(circle,#fff 0 52%,#e3edff 53% 100%);border:8px solid #174ea6;box-shadow:inset 0 0 20px #174ea633,0 8px 22px #0002;display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:18px;box-sizing:border-box}.clock-face button{border:0;background:transparent;color:#173f91;font-weight:1000;font-size:17px;border-radius:50%}.clock-face button.selected{background:#174ea6;color:#fff;box-shadow:0 3px 8px #174ea655}
+.clock-minute-label{text-align:center;font-size:12px;font-weight:900;color:#52645a;margin:2px 0 5px}.clock-minutes{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}.clock-minutes button{border:1px solid #b8c8e5;background:#fff;color:#173f91;border-radius:9px;padding:7px 2px;font-weight:900}.clock-minutes button.selected{background:#174ea6;color:#fff;border-color:#174ea6}.clock-picker-actions{display:flex;gap:8px;margin-top:13px}.clock-picker-actions button{flex:1;border:0;border-radius:12px;padding:11px;font-size:15px;font-weight:1000}.clock-cancel{background:#e5e7eb;color:#333}.clock-save{background:#174ea6;color:#fff}.dark .clock-picker{background:linear-gradient(145deg,#111827,#172b46);color:#fff}.dark .clock-face{background:radial-gradient(circle,#1f2937 0 52%,#263b5d 53% 100%)}.dark .clock-face button{color:#fff}.dark .clock-minutes button,.dark .clock-ap button{background:#1f2937;color:#fff;border-color:#526b91}.dark .clock-picker-close{background:#263449;color:#fff}
+@media(max-width:600px){.clock-picker{border-radius:20px;padding:12px}.clock-face{width:210px;height:210px;padding:15px}.clock-face button{font-size:15px}.clock-display-part{min-width:68px;font-size:25px}}
+</style>
+<style id="v114-mobile-clock-fix">
+/* V114: compact clock so the Set Time button is always visible on phone screens. */
+.clock-picker-backdrop{padding:8px!important;align-items:center!important;}
+.clock-picker{width:min(380px,100%)!important;max-height:calc(100dvh - 16px)!important;max-height:calc(100vh - 16px)!important;overflow:hidden!important;padding:10px!important;border-radius:20px!important;}
+.clock-picker-head{margin-bottom:4px!important}.clock-picker-title{font-size:17px!important}.clock-picker-close{width:31px!important;height:31px!important;font-size:19px!important}
+.clock-display{margin:5px 0 7px!important}.clock-display-part{min-width:64px!important;padding:7px 6px!important;font-size:24px!important}.clock-display-sep{font-size:24px!important}.clock-ap button{padding:6px 8px!important}
+.clock-face{width:184px!important;height:184px!important;border-width:6px!important;padding:10px!important;gap:2px!important;margin:4px auto 7px!important}.clock-face button{font-size:14px!important}
+.clock-minute-label{margin:1px 0 3px!important}.clock-minutes{grid-template-columns:repeat(10,1fr)!important;gap:3px!important;max-height:150px!important;overflow:auto!important;padding:1px!important}.clock-minutes button{padding:4px 1px!important;font-size:11px!important;border-radius:7px!important}
+.clock-picker-actions{margin-top:4px!important;gap:6px!important}.clock-picker-actions button{padding:9px!important;font-size:14px!important;min-height:38px!important}
+@media(max-width:600px){.clock-picker{width:min(370px,100%)!important}.clock-face{width:176px!important;height:176px!important}.clock-display-part{min-width:60px!important;font-size:23px!important}.clock-minutes{max-height:144px!important}.clock-minutes button{font-size:10px!important;padding:3px 1px!important}.clock-picker-actions button{min-height:40px!important}}
+</style>
+<style id="v116-time-picker-final-mobile">
+/* V117: keep every minute selectable (00-59) and keep Set Time fully inside the phone screen. */
+.clock-picker-backdrop{padding:8px!important;align-items:center!important;}
+.clock-picker{width:min(370px,calc(100vw - 16px))!important;max-width:370px!important;max-height:calc(100dvh - 16px)!important;box-sizing:border-box!important;overflow:hidden!important;}
+.clock-picker-actions{display:grid!important;grid-template-columns:1fr 1.35fr!important;width:100%!important;box-sizing:border-box!important;}
+.clock-picker-actions button{display:flex!important;align-items:center!important;justify-content:center!important;min-width:0!important;width:100%!important;box-sizing:border-box!important;white-space:nowrap!important;overflow:visible!important;}
+.clock-save{font-size:14px!important;padding-left:6px!important;padding-right:6px!important;}
+.clock-minutes{grid-template-columns:repeat(10,minmax(0,1fr))!important;gap:3px!important;max-height:132px!important;overflow-y:auto!important;overflow-x:hidden!important;}
+.clock-minutes button{min-width:0!important;width:100%!important;box-sizing:border-box!important;}
+@media(max-width:600px){.clock-picker{width:calc(100vw - 16px)!important;max-width:370px!important;padding:9px!important}.clock-display-part{min-width:58px!important}.clock-face{width:172px!important;height:172px!important}.clock-minutes{max-height:126px!important}.clock-picker-actions{grid-template-columns:1fr 1.45fr!important}.clock-picker-actions button{min-height:42px!important;font-size:13px!important}}
+</style>
+<script id="v118-azan-jamat-time-picker">
+(function(){
+'use strict';var activeInput=null,hour=12,minute=0,ap='AM',overlay=null;
+function pad(n){return String(n).padStart(2,'0');}
+function readValue(inp){var v=String(inp&&inp.value||''),m=v.match(/^(\d{1,2}):(\d{2})$/);if(m){var h=+m[1];minute=+m[2];ap=h>=12?'PM':'AM';hour=h%12||12;}else{var d=new Date();hour=d.getHours()%12||12;minute=Math.round(d.getMinutes()/5)*5;if(minute===60){minute=0;hour=hour===12?1:hour+1;}ap=d.getHours()>=12?'PM':'AM';}}
+function value24(){var h=hour%12+(ap==='PM'?12:0);return pad(h)+':'+pad(minute);}
+function render(){if(!overlay)return;overlay.querySelector('.v118-hour-display').textContent=pad(hour);overlay.querySelector('.v118-minute-display').textContent=pad(minute);overlay.querySelectorAll('.v118-hours button').forEach(function(b){b.classList.toggle('selected',+b.dataset.hour===hour)});overlay.querySelectorAll('.v118-minutes button').forEach(function(b){b.classList.toggle('selected',+b.dataset.minute===minute)});overlay.querySelectorAll('.v118-ap button').forEach(function(b){b.classList.toggle('selected',b.dataset.ap===ap)});}
+function close(){if(overlay){overlay.remove();overlay=null;}activeInput=null;}
+function open(inp){if(!inp||inp.disabled)return;activeInput=inp;readValue(inp);overlay=document.createElement('div');overlay.className='v118-picker-backdrop';var hours='',mins='';for(var h=1;h<=12;h++)hours+='<button type="button" data-hour="'+h+'">'+h+'</button>';for(var m=0;m<60;m++)mins+='<button type="button" data-minute="'+m+'">'+pad(m)+'</button>';overlay.innerHTML='<div class="v118-picker" role="dialog" aria-modal="true" aria-label="Azaan aur Jamaat ka waqt set karein"><div class="v118-head"><b>🕐 Azaan / Jamaat Time</b><button type="button" class="v118-close">×</button></div><div class="v118-display"><button type="button" class="v118-display-part v118-hour-display"></button><b>:</b><button type="button" class="v118-display-part v118-minute-display"></button><div class="v118-ap"><button type="button" data-ap="AM">AM</button><button type="button" data-ap="PM">PM</button></div></div><div class="v118-quick-label">Minute jaldi set karein</div><div class="v118-quick-minutes"><button type="button" data-quick-minute="-5">−5</button><button type="button" data-quick-minute="-1">−1</button><button type="button" data-quick-minute="1">+1</button><button type="button" data-quick-minute="5">+5</button></div><div class="v118-caption">Hour</div><div class="v118-hours">'+hours+'</div><div class="v118-caption">Minute (00–59)</div><div class="v118-minutes">'+mins+'</div><div class="v118-actions"><button type="button" class="v118-cancel">Cancel</button><button type="button" class="v118-save">✓ Set Time</button></div></div>';document.body.appendChild(overlay);render();
+overlay.addEventListener('click',function(e){var t=e.target;if(t===overlay||t.closest('.v118-close')||t.closest('.v118-cancel')){close();return;}var hb=t.closest('.v118-hours button');if(hb){hour=+hb.dataset.hour;render();return;}var mb=t.closest('.v118-minutes button');if(mb){var mv=+mb.dataset.minute;if(mv===60){minute=0;hour=hour===12?1:hour+1;}else minute=mv;render();return;}var ab=t.closest('.v118-ap button');if(ab){ap=ab.dataset.ap;render();return;}var qb=t.closest('[data-quick-minute]');if(qb){var delta=parseInt(qb.dataset.quickMinute,10)||0;var total=(hour%12)*60+minute+(ap==='PM'?720:0)+delta;total=((total%1440)+1440)%1440;var h24=Math.floor(total/60),nm=total%60;ap=h24>=12?'PM':'AM';hour=h24%12||12;minute=nm;render();return;}if(t.closest('.v118-save')){if(activeInput){activeInput.value=value24();activeInput.dispatchEvent(new Event('input',{bubbles:true}));activeInput.dispatchEvent(new Event('change',{bubbles:true}));}close();return;}});}
+function init(){document.querySelectorAll('.daily-edit-table input[type="time"][data-prayer]').forEach(function(inp){inp.classList.add('v118-time-input');inp.setAttribute('readonly','readonly');});}
+document.addEventListener('pointerdown',function(e){var inp=e.target.closest&&e.target.closest('.daily-edit-table input[type="time"][data-prayer]');if(inp){e.preventDefault();e.stopPropagation();open(inp);}},true);document.addEventListener('click',function(e){var inp=e.target.closest&&e.target.closest('.daily-edit-table input[type="time"][data-prayer]');if(inp){e.preventDefault();e.stopPropagation();}},true);window.addEventListener('load',function(){setTimeout(init,100);});if(document.readyState!=='loading')setTimeout(init,100);
+})();
+</script>
+<style id="step30-easy-minute-controls">
+.v118-quick-label{text-align:center;font-size:10px;font-weight:900;color:#52645a;margin:2px 0 3px}.v118-quick-minutes{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:0 0 5px}.v118-quick-minutes button{height:32px;border:1px solid #a9bddf;border-radius:8px;background:#fff;color:#173f91;font-size:13px;font-weight:1000;box-shadow:0 1px 3px #0001}.v118-quick-minutes button:active{transform:scale(.96);background:#174ea6;color:#fff}.dark .v118-quick-minutes button{background:#1f2937;color:#fff;border-color:#526b91}@media(max-width:600px){.v118-quick-minutes{gap:4px}.v118-quick-minutes button{height:31px;font-size:12px}}
+</style>
+<style id="v118-azan-jamat-time-picker-style">.v118-picker-backdrop{position:fixed;inset:0;z-index:999999;background:rgba(0,0,0,.58);display:flex;align-items:center;justify-content:center;padding:8px;box-sizing:border-box;overflow:auto}.v118-picker{width:min(360px,calc(100vw - 12px));max-height:calc(100vh - 12px);overflow:auto;box-sizing:border-box;background:#fff;border:3px solid #174ea6;border-radius:20px;padding:9px;box-shadow:0 18px 55px #0008;color:#172033}.v118-head{display:flex;align-items:center;justify-content:space-between;font-size:15px;margin-bottom:5px}.v118-close{width:30px;height:30px;border:0;border-radius:50%;font-size:19px;font-weight:900;background:#e9eef7;color:#174ea6}.v118-display{display:flex;align-items:center;justify-content:center;gap:5px;margin:3px 0 6px}.v118-display-part{width:56px;height:40px;border:0;border-radius:10px;background:#174ea6;color:#fff;font-size:21px;font-weight:1000}.v118-display>b{font-size:21px;color:#174ea6}.v118-ap{display:flex;gap:3px;margin-left:2px}.v118-ap button{height:32px;padding:0 7px;border:2px solid #174ea6;border-radius:8px;background:#fff;color:#174ea6;font-weight:1000}.v118-ap button.selected{background:#174ea6;color:#fff}.v118-caption{text-align:center;font-size:10px;font-weight:900;margin:3px 0;color:#52645a}.v118-hours{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,1fr);gap:3px;width:168px;height:120px;margin:0 auto 4px}.v118-hours button{border:1px solid #b8c8e5;border-radius:8px;background:#f7faff;color:#173f91;font-size:14px;font-weight:1000}.v118-hours button.selected{background:#174ea6;color:#fff}.v118-minutes{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px;width:100%;box-sizing:border-box}.v118-minutes button{height:29px;min-width:0;border:1px solid #b8c8e5;border-radius:7px;background:#fff;color:#173f91;font-size:10px;font-weight:1000;padding:0}.v118-minutes button.selected{background:#174ea6;color:#fff;border-color:#174ea6}.v118-actions{display:grid;grid-template-columns:1fr 1.45fr;gap:6px;margin-top:7px}.v118-actions button{height:40px;border:0;border-radius:10px;font-size:13px;font-weight:1000}.v118-cancel{background:#e5e7eb;color:#333}.v118-save{background:#174ea6;color:#fff}@media(max-width:600px){.v118-picker{padding:8px}.v118-hours{width:164px;height:116px}.v118-minutes button{height:28px;font-size:10px}} </style>
+<style id="v119-azan-jamat-fix">
+/* V119: individual minute selection 00-59. Azaan/Jamaat readability only; Sunset untouched. */
+.v118-minutes{grid-template-columns:repeat(10,minmax(0,1fr))!important;gap:4px!important;max-height:none!important;overflow:visible!important;padding:2px!important;}
+.v118-minutes button{height:30px!important;min-width:0!important;font-size:11px!important;background:#f8fbff!important;color:#173f91!important;border:1px solid #a9bddf!important;}
+.v118-minutes button.selected{background:#174ea6!important;color:#fff!important;border-color:#174ea6!important;}
+.daily-edit-table td:nth-child(2),.daily-edit-table td:nth-child(3){background:#edf3fb!important;}
+.daily-edit-table td:nth-child(2) input[type=time],.daily-edit-table td:nth-child(3) input[type=time]{color:#172033!important;-webkit-text-fill-color:#172033!important;font-weight:1000!important;opacity:1!important;}
+@media(max-width:600px){.v118-minutes{grid-template-columns:repeat(10,minmax(0,1fr))!important;gap:3px!important;}.v118-minutes button{height:29px!important;font-size:10px!important;padding:0!important;}}
+</style>
+<style id="v121-picker-accessibility">
+/* V121: clearer minute picker label and focus visibility; timetable/Sun Set/Sun Rise untouched. */
+.v118-hours button:focus-visible,.v118-minutes button:focus-visible,.v118-ap button:focus-visible,.v118-actions button:focus-visible,.v118-close:focus-visible{outline:3px solid #f0a500!important;outline-offset:2px!important;}
+.v118-minutes button[aria-current="true"]{box-shadow:inset 0 0 0 2px #174ea6!important;}
+</style>
+<script id="v121-picker-a11y">
+(function(){
+  function mark(){
+    document.querySelectorAll('.v118-picker').forEach(function(p){
+      p.querySelectorAll('.v118-hours button').forEach(function(b){b.setAttribute('aria-label','Hour '+b.textContent.trim());});
+      p.querySelectorAll('.v118-minutes button').forEach(function(b){b.setAttribute('aria-label','Minute '+b.textContent.trim());});
+      p.querySelectorAll('.v118-ap button').forEach(function(b){b.setAttribute('aria-label',b.textContent.trim());});
+    });
+  }
+  /* disabled: whole-page picker observer */
+})();
+</script>
+<style id="v124-live-time-pm-line">
+/* V124: Live Time label emphasis + keep PM on one line. Surrounding areas untouched. */
+.live-clock-box .extra-kicker{font-size:15px!important;font-weight:1000!important;color:#c62828!important;white-space:nowrap!important;}
+.live-clock-box #liveClock,.live-clock-box #liveDate{white-space:nowrap!important;}
+@media(max-width:600px){.live-clock-box .extra-kicker{font-size:14px!important;color:#c62828!important;}}
+</style>
+<style id="v128-install-shortcut-style">
+/* V128: small install/shortcut control; existing layout untouched. */
+.pwa-install-btn{display:none;margin:8px auto 0;padding:8px 12px;border:0;border-radius:10px;font-weight:900;cursor:pointer;}
+.pwa-install-btn.v128-show{display:block;}
+</style>
+<style id="v129-install-helper">
+/* V129: Home-screen install helper. Existing UI/features remain unchanged. */
+.pwa-install-helper{display:none;width:100%;box-sizing:border-box;margin:8px 0 0;padding:9px 12px;border:0;border-radius:12px;font:inherit;font-weight:900;cursor:pointer;}
+.pwa-install-helper.show{display:block;}
+</style>
+<style id="v131-install-helper">
+/* V131: small mobile install/shortcut helper; existing timetable UI remains untouched. */
+#pwaInstallBtn,#addHomeScreenBtn{font-weight:800!important;}
+@media(max-width:600px){#pwaInstallBtn,#addHomeScreenBtn{min-height:42px!important;touch-action:manipulation!important;}}
+</style>
+<style id="v133-install-status-only">
+/* V133: scoped PWA install status; timetable/layout untouched. */
+#pwaInstallStatus{font-size:13px!important;font-weight:800!important;line-height:1.35!important;margin-top:3px!important;}
+@media(max-width:600px){#pwaInstallStatus{font-size:12px!important;}}
+</style>
+<style id="v135-remove-mobile-shortcut-overlay">
+/* V135: remove mobile shortcut overlay so Bottom/Top controls stay fully visible. */
+#v110InstallBtn,#v127InstallHint,#pwaInstallBtn,#pwaInstallHelper{display:none!important;}
+</style>
+<style id="v136-upper-lower-navigation-layout">
+/* V136: navigation layout only. Search/All controls removed from upper toolbar; Top + Bottom sit together. */
+.v136-upper-nav-btn{white-space:nowrap!important;}
+.smart-bottom-nav{gap:5px!important;}
+.smart-bottom-nav button{padding:7px 11px!important;font-size:12px!important;}
+@media(max-width:600px){.smart-bottom-nav{gap:4px!important;padding:3px!important}.smart-bottom-nav button{padding:7px 10px!important;font-size:11px!important;}}
+</style>
+<style id="v137-position-only-fix">
+/* V137: very small position-only adjustment. Keep lines and sizes unchanged. */
+.daily-auto-row[data-auto-index="0"] span{transform:translateY(-3px)!important;}
+#v11NextPrayerPanel{transform:translateY(-12px)!important;}
+</style>
+<style id="v140-safe-pwa-cache-fix">/* V140: PWA cache references only; UI/features unchanged. */</style>
+<style id="v142-offline-pwa-maintenance">/* V142: offline navigation fallback only; UI/features unchanged. */</style>
+<style id="v145-aaj-ka-mahina-size">
+/* V145: Make the Aaj ka Mahina label between the month boxes slightly larger and bolder; position/layout unchanged. */
+.month.v27-current-month .month-heading::after{font-size:13px!important;font-weight:1000!important;padding:3px 9px!important;}
+</style>
+<style id="v150-aaj-ka-mahina-between-months">
+/* V150: Keep the current-month label centered in the gap between the preceding box and the current-month box. */
+.month.v27-current-month{position:relative!important;}
+.month.v27-current-month .month-heading{padding-top:4px!important;}
+.month.v27-current-month .month-heading::after{display:none!important;content:none!important;}
+.month.v27-current-month::before{
+  content:'● Aaj ka Mahina';
+  position:absolute!important;
+  left:50%!important;
+  top:-19px!important;
+  transform:translateX(-50%)!important;
+  z-index:20!important;
+  display:block!important;
+  width:max-content!important;
+  max-width:calc(100% - 24px)!important;
+  box-sizing:border-box!important;
+  padding:3px 11px!important;
+  border-radius:999px!important;
+  background:linear-gradient(135deg,#075e3b,#0b7a4d)!important;
+  color:#fff!important;
+  border:1px solid #c99a2e!important;
+  font-size:14px!important;
+  line-height:1.2!important;
+  font-weight:1000!important;
+  white-space:nowrap!important;
+  box-shadow:0 2px 7px rgba(7,94,59,.18)!important;
+}
+@media(max-width:600px){
+  .month.v27-current-month::before{top:-18px!important;font-size:14px!important;padding:3px 10px!important;}
+}
+</style>
+<style id="v150-home-screen-install">
+#pwaInstallBtn{display:block!important;box-sizing:border-box;width:100%;max-width:520px;margin:10px auto 14px;padding:11px 14px;border:0;border-radius:12px;background:#173f91;color:#fff;font-weight:900;font-size:15px;cursor:pointer;}
+@media(max-width:600px){#pwaInstallBtn{min-height:44px;font-size:14px;margin:8px auto 12px;}}
+</style>
+<style id="v208-backup-design">.v207-backup-card{padding:14px!important;margin:14px 0!important;border:1px solid #d7c58b!important;border-radius:18px!important;background:linear-gradient(145deg,#fffdf4,#f4fbf7)!important;box-shadow:0 8px 24px #17322a18!important}.v207-backup-head{display:flex;align-items:center;gap:11px;padding:3px 2px 12px;border-bottom:1px solid #e4dfc9}.v207-backup-icon{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#075e3b;color:#fff;font-size:23px;box-shadow:0 4px 10px #075e3b30}.v207-backup-head h3{margin:0!important;color:#075e3b!important;font-size:19px!important}.v207-backup-head p{margin:2px 0 0!important;font-size:11px!important;color:#66756e}.v207-backup-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.v207-backup-btn{min-width:0;border:1px solid #d8dfd9;border-radius:14px;padding:11px 6px!important;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-align:center;cursor:pointer;color:#17322a!important;box-sizing:border-box}.v207-backup-btn span{font-size:21px;line-height:1}.v207-backup-btn b{font-size:11px;line-height:1.15}.v207-backup-btn small{font-size:8.5px;line-height:1.15;color:#6b7772}.v207-backup{border-color:#b9dbc9!important}.v207-restore{border-color:#d9c98f!important;background:#fffdf3!important}.v207-reset{border-color:#e0bcbc!important;background:#fff8f8!important}.v207-backup-btn:active{transform:scale(.98)}.v207-backup-card #muazzinSettingsFile{position:absolute!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important}.v207-backup-card .muazzin-last-backup{text-align:center;font-size:9px;color:#66756e;margin-top:8px}.v207-backup-card .muazzin-settings-status{text-align:center;font-weight:800;font-size:11px;margin-top:5px;min-height:16px;color:#075e3b}@media(max-width:600px){.v207-backup-grid{gap:6px}.v207-backup-btn{padding:10px 4px!important}.v207-backup-btn b{font-size:10px}.v207-backup-btn small{font-size:8px}.v207-backup-head h3{font-size:18px!important}}</style><style id="step156-last-backup-size-position">
+/* Only Last Backup text: slightly lower and larger. */
+.v207-backup-card .muazzin-last-backup{
+  margin-top:14px!important;
+  font-size:11px!important;
+  line-height:1.35!important;
+}
+</style>
+<!-- V249: Remove the Home Screen control from the very bottom. -->
+<style id="v249-remove-home-screen-bottom">
+/* V249: user requested removal of the Home Screen control shown at the very bottom. */
+#pwaInstallBtn, #v110InstallBtn, #v127InstallHint, #pwaInstallHelper { display:none!important; }
+</style>
+<style id="v251-mast-premium-design">
+/* V251: Premium visual polish only. Existing functions/layout preserved. */
+:root{--m-green:#075e3b;--m-green2:#0b7a4d;--m-gold:#c99a2e;--m-cream:#fffaf0;}
+body{background:radial-gradient(circle at 50% -10%,#ffffff 0,#f4fbf7 35%,#edf6f1 100%)!important;}
+.daily-namaz-card,.tools,.extra-tools-card,.calendar-card,.help-card,.backup-card,.reminder-card,.sound-card{border-radius:20px!important;box-shadow:0 8px 26px rgba(15,70,45,.10)!important;}
+.daily-title-row{background:linear-gradient(135deg,var(--m-green),var(--m-green2))!important;color:#fff!important;border-radius:16px!important;box-shadow:0 5px 14px rgba(7,94,59,.18)!important;letter-spacing:.2px!important;}
+.daily-date-main{background:linear-gradient(145deg,#fffdf7,#f5fbf7)!important;border:1px solid #d9e7dc!important;border-radius:14px!important;box-shadow:0 3px 10px rgba(0,0,0,.05)!important;}.daily-date-main,.daily-date-main span{color:#17322a!important;} .daily-date-main .daily-date-label-top{color:#075e3b!important;} .daily-date-main #dailyTableDate,.daily-date-main #dailyTableHijriDate{color:#111!important;font-weight:1000!important;}
+.daily-table-wrap{border-radius:16px!important;overflow:hidden!important;border:1px solid #dce9df!important;box-shadow:0 4px 15px rgba(0,0,0,.06)!important;}
+.daily-table-wrap table tr:hover td{background:#f4fbf7!important;}
+.daily-table-wrap input,.daily-table-wrap select{border-radius:9px!important;border:1px solid #c9d9ce!important;}
+#monthJump,.v136-upper-nav-btn{border-radius:12px!important;box-shadow:0 3px 10px rgba(0,0,0,.08)!important;font-weight:900!important;}
+button{transition:transform .16s ease,box-shadow .16s ease,filter .16s ease;}
+button:hover{filter:brightness(1.025);box-shadow:0 5px 14px rgba(0,0,0,.10);}
+button:active{transform:translateY(1px) scale(.98);}
+.month.v27-current-month{filter:drop-shadow(0 4px 8px rgba(7,94,59,.10));}
+@media(max-width:600px){
+ .daily-title-row{font-size:16px!important;padding:10px 8px!important;}
+ .daily-date-main{min-height:48px!important;}
+ .daily-table-wrap{box-shadow:0 3px 10px rgba(0,0,0,.05)!important;}
+}
+@media(prefers-reduced-motion:reduce){button{transition:none!important;}}
+</style>
+<style id="muazzin-exact-date-box-compact">
+/* Only the two English Date / Hijri Date boxes */
+.daily-date-pair-top > .daily-date-main{
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+  min-height: 0 !important;
+}
+@media(max-width:600px){
+  .daily-date-pair-top > .daily-date-main{
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    min-height: 0 !important;
+  }
+}
+</style>
+<style id="muazzin-premium-safe-v1">
+:root{--mpg:#087f5b;--mpg2:#0aa678;--mpgold:#d6a62b;--mpnavy:#102a43;--mpbg:#f3f8f6}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(circle at 8% 0%,rgba(10,166,120,.12),transparent 28rem),radial-gradient(circle at 92% 4%,rgba(214,166,43,.12),transparent 24rem),linear-gradient(180deg,#f7fbfa,#f3f8f6);color:var(--mpnavy)}
+.card,.tools,#dailyNamazCard,.daily-namaz-card{border:1px solid rgba(16,42,67,.1)!important;border-radius:20px!important;box-shadow:0 14px 35px rgba(16,42,67,.1)!important;background:rgba(255,255,255,.95)!important;backdrop-filter:blur(10px)}
+button,.btn,input[type=button],input[type=submit],select{border-radius:13px!important;transition:transform .16s,box-shadow .16s}
+button:hover,.btn:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(16,42,67,.12)}
+.daily-namaz-card::before,#dailyNamazCard::before{content:"";display:block;height:5px;margin:-1px -1px 12px;background:linear-gradient(90deg,var(--mpg),var(--mpgold),var(--mpg2))}
+.daily-title-row{border-radius:14px;background:linear-gradient(135deg,rgba(8,127,91,.08),rgba(214,166,43,.08))}
+.daily-edit-table{border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(16,42,67,.07)}
+.daily-edit-table th{background:linear-gradient(135deg,var(--mpg),#075f49)!important;color:#fff!important}
+.smart-bottom-nav{box-shadow:0 -8px 24px rgba(16,42,67,.1)!important;border-top:1px solid rgba(16,42,67,.1)!important;backdrop-filter:blur(16px)}
+.today-summary-item{border:1px solid rgba(16,42,67,.1)!important;border-radius:16px!important;box-shadow:0 8px 20px rgba(16,42,67,.07)!important}
+.today-summary-item.current-prayer{outline:2px solid rgba(214,166,43,.65)!important;box-shadow:0 0 0 4px rgba(214,166,43,.1),0 10px 24px rgba(214,166,43,.13)!important}
+@media(max-width:700px){.wrap{padding-left:10px!important;padding-right:10px!important}.card,.tools,#dailyNamazCard,.daily-namaz-card{border-radius:17px!important;box-shadow:0 9px 24px rgba(16,42,67,.08)!important}button,.btn{min-height:42px}}
+</style>
+<style id="muazzin-premium-step1">
+/* Small safe visual step: card polish only. No JS/function changes. */
+.card{border-radius:18px!important;box-shadow:0 8px 24px rgba(16,42,67,.09)!important;border:1px solid rgba(8,127,91,.12);}
+.card h2,.card h3{letter-spacing:.15px;}
+.tools button,.tools select,.tools input{border-radius:12px!important;}
+@media(max-width:600px){.card{border-radius:15px!important;box-shadow:0 6px 18px rgba(16,42,67,.08)!important;}}
+</style>
+<style id="muazzin-premium-step2">
+/* STEP 2 — subtle premium button polish */
+.tools button, button, .btn {
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.tools button:hover, button:hover, .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 16px rgba(7,95,73,.14);
+}
+.tools button:active, button:active, .btn:active {
+  transform: translateY(0);
+}
+</style>
+<style id="muazzin-premium-step3">
+/* STEP 3 — tiny card polish only */
+.card, .month, .daily-namaz-card, .azaan-jamaat-box {
+  border-radius:18px !important;
+  box-shadow:0 8px 22px rgba(16,42,67,.08) !important;
+}
+.card:hover, .month:hover, .daily-namaz-card:hover {
+  transform:translateY(-1px);
+  transition:transform .18s ease, box-shadow .18s ease;
+  box-shadow:0 12px 28px rgba(16,42,67,.12) !important;
+}
+</style>
+<style id="muazzin-premium-step5">
+/* STEP 5 — Help App full-width under Share/Home buttons */
+[id*="help" i], .help-app, .helpApp {
+  width:100% !important;
+  box-sizing:border-box !important;
+}
+</style>
+<style id="muazzin-premium-step6">
+/* STEP 6 — Help becomes one long full-width line */
+#helpApp,.help-app,button[id*="help" i],a[id*="help" i]{
+  width:100% !important;
+  min-width:100% !important;
+  flex:1 1 100% !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  white-space:nowrap !important;
+  box-sizing:border-box !important;
+}
+</style>
+<style id="muazzin-premium-step7">
+/* STEP 7: Help button — single long line, safe visual fix */
+#helpApp, .help-app, button[id*="help" i], a[id*="help" i]{
+  width:100% !important;
+  min-width:0 !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  box-sizing:border-box !important;
+}
+@media(max-width:520px){
+  #helpApp, .help-app, button[id*="help" i], a[id*="help" i]{font-size:14px !important; padding-left:10px !important; padding-right:10px !important;}
+}
+</style>
+<style id="step11-sunset-premium">
+/* Step 11: Sunset panel visual polish only. No content, IDs, or JS changed. */
+.sunset-with-side-arrows .sunset-highlight{
+  position:relative!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+  background:linear-gradient(135deg,#5b2f08 0%,#9a4f08 38%,#d98212 72%,#f3bb45 100%)!important;
+  border:1px solid rgba(255,239,178,.9)!important;
+  border-radius:24px!important;
+  box-shadow:0 14px 30px rgba(91,47,8,.25), inset 0 1px 0 rgba(255,255,255,.28)!important;
+}
+.sunset-with-side-arrows .sunset-highlight:before{
+  content:"";position:absolute;right:-34px;top:-52px;width:150px;height:150px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,247,197,.42) 0 18%,rgba(255,221,117,.18) 38%,transparent 70%);
+  z-index:-1;pointer-events:none;
+}
+.sunset-with-side-arrows .sunset-highlight:after{
+  content:"";position:absolute;left:-45px;bottom:-65px;width:170px;height:110px;border-radius:50%;
+  background:rgba(255,190,70,.12);filter:blur(2px);z-index:-1;pointer-events:none;
+}
+.sunset-with-side-arrows .sunset-label{font-size:14px!important;letter-spacing:.7px!important;text-shadow:0 1px 2px rgba(0,0,0,.25);}
+.sunset-with-side-arrows .sunset-time{
+  display:inline-block!important;margin-top:3px!important;padding:4px 12px 5px!important;
+  border-radius:14px!important;background:rgba(62,29,0,.24)!important;
+  border:1px solid rgba(255,239,178,.35)!important;
+  font-size:40px!important;letter-spacing:.5px!important;
+  box-shadow:inset 0 1px 5px rgba(0,0,0,.14)!important;
+}
+.sunset-with-side-arrows .sunset-note{opacity:.92!important;text-shadow:0 1px 2px rgba(0,0,0,.18);}
+.sunset-with-side-arrows .preprayer-circle{
+  border-width:3px!important;
+  box-shadow:0 8px 24px rgba(48,25,0,.34),inset 0 0 0 3px #b97808!important;
+}
+.dark .sunset-with-side-arrows .sunset-highlight{
+  background:linear-gradient(135deg,#3f2408 0%,#68400d 45%,#9a6516 100%)!important;
+  border-color:#e5bd63!important;
+}
+@media(max-width:600px){
+  .sunset-with-side-arrows .sunset-highlight{border-radius:20px!important;box-shadow:0 10px 24px rgba(91,47,8,.22),inset 0 1px 0 rgba(255,255,255,.22)!important;}
+  .sunset-with-side-arrows .sunset-time{font-size:34px!important;padding:4px 9px 5px!important;border-radius:12px!important;}
+}
+</style>
+<style id="step13-sunset-card-circle-polish">
+/* Step 13: visual-only sunset card + circle polish. No content or logic changed. */
+.sunset-with-side-arrows .sunset-highlight{
+  position:relative!important;
+  border-radius:26px!important;
+  border:1px solid rgba(255,239,173,.95)!important;
+  box-shadow:0 14px 34px rgba(92,55,8,.24), inset 0 1px 0 rgba(255,255,255,.32)!important;
+  overflow:hidden!important;
+}
+.sunset-with-side-arrows .sunset-highlight::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(120deg,rgba(255,255,255,.16),transparent 38%,rgba(255,220,100,.10));
+}
+.sunset-with-side-arrows .sunset-circle-controls{position:relative;z-index:1!important;}
+.sunset-with-side-arrows .preprayer-circle{
+  position:relative!important;
+  border:3px solid rgba(255,247,205,.98)!important;
+  box-shadow:0 8px 22px rgba(58,32,0,.32), inset 0 0 0 2px rgba(126,78,0,.42), inset 0 8px 18px rgba(255,255,255,.24)!important;
+  transform:translateZ(0);
+}
+.sunset-with-side-arrows .preprayer-circle::after{
+  content:"";position:absolute;inset:7px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.38);pointer-events:none;
+}
+@media(max-width:600px){
+  .sunset-with-side-arrows .sunset-highlight{border-radius:22px!important;box-shadow:0 10px 24px rgba(92,55,8,.20), inset 0 1px 0 rgba(255,255,255,.30)!important;}
+  .sunset-with-side-arrows .preprayer-circle{box-shadow:0 6px 17px rgba(58,32,0,.28), inset 0 0 0 2px rgba(126,78,0,.42), inset 0 6px 14px rgba(255,255,255,.22)!important;}
+}
+</style>
+<style id="step14-circle-color">
+/* Step 14: beautiful sunset circle color only. */
+.sunset-with-side-arrows .preprayer-circle{
+<!-- SAFE DEVELOPMENT STEP: backup-safe marker only; no existing UI/functionality changed. -->
+<style id="safe-development-step-1">#muazzinSafeDevMarker{display:none!important}</style>
+
+<!-- SAFE DEVELOPMENT STEP: accessibility focus polish; no existing function logic changed. -->
+<style id="safe-development-step-2">
+/* Keyboard/touch focus visibility only. Existing sizes, positions and functionality remain unchanged. */
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #d6a62b!important;outline-offset:2px!important;}
+</style>
+
+<!-- SAFE DEVELOPMENT STEP: prevent accidental horizontal overflow; no existing UI/function logic changed. -->
+<style id="safe-development-step-3">
+html,body{max-width:100%;overflow-x:hidden;}
+img,video,canvas{max-width:100%;height:auto;}
+</style>
+
+<!-- SAFE DEVELOPMENT STEP: mobile viewport safeguard; no existing UI/function logic changed. -->
+<style id="safe-development-step-4">
+@media (max-width:600px){html{width:100%;min-width:0;}body{width:100%;min-width:0;}}
+</style>
