@@ -1336,3 +1336,15 @@ input:focus,select:focus,textarea:focus{
   .nav button, .controls button, .search-box button, .search-row button{min-height:42px;}
 }
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: accessibility motion safeguard; existing data/functionality preserved. -->
+<style id="safe-development-step-38">
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    scroll-behavior:auto!important;
+    transition-duration:.01ms!important;
+  }
+}
+</style>
