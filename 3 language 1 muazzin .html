@@ -1137,3 +1137,17 @@ button:active{transform:translateY(1px);}
   .month h2{font-size:20px;}
 }
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium typography hierarchy; existing data/functionality preserved. -->
+<style id="safe-development-step-25">
+.hero.mosque-hero h1{letter-spacing:.2px;text-shadow:0 2px 8px rgba(0,0,0,.16);}
+.hero.mosque-hero h2{letter-spacing:.15px;}
+.card h2,.card h3{color:var(--premium-green,#075e3b);}
+.scroll thead th{font-weight:800;letter-spacing:.15px;}
+.scroll tbody td{font-variant-numeric:tabular-nums;}
+@media(max-width:700px){
+  .hero.mosque-hero h1{font-size:25px;}
+  .hero.mosque-hero h2{font-size:18px;}
+  .scroll thead th{font-size:12px!important;}
+}
+</style>
