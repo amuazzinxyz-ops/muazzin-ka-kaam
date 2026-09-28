@@ -2,9 +2,24 @@
   "name": "Muazzin Ka Kaam",
   "short_name": "Muazzin",
   "start_url": "./3%20language%201%20muazzin%20.html",
+  "scope": "./",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#ffffff",
   "theme_color": "#0b6b53",
   "description": "Islamic timetable and Muazzin timing tool.",
-  "icons": []
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
 }
