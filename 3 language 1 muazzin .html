@@ -1598,3 +1598,15 @@ img,video,canvas,svg{max-width:100%;}
 <style id="safe-development-step-66">
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important;}}
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium print-layout cleanup; existing data/functionality preserved. -->
+<style id="safe-development-step-67">
+@media print{
+body{background:#fff!important;}
+.card{box-shadow:none!important;border-color:#bbb!important;}
+button,.no-print{display:none!important;}
+.scroll{overflow:visible!important;max-height:none!important;}
+table{break-inside:auto;}
+tr{break-inside:avoid;}
+}
+</style>
