@@ -1286,3 +1286,22 @@ input:focus,select:focus,textarea:focus{
   .scroll thead th:after{left:6%;right:6%;bottom:1px;}
 }
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium today-row emphasis; existing data/functionality preserved. -->
+<style id="safe-development-step-35">
+.scroll tbody tr.today-row{
+  position:relative;
+}
+.scroll tbody tr.today-row td{
+  background:linear-gradient(90deg,rgba(214,168,79,.10),rgba(7,94,59,.035))!important;
+  font-weight:700;
+  box-shadow:inset 0 1px 0 rgba(214,168,79,.24),inset 0 -1px 0 rgba(214,168,79,.20);
+}
+.scroll tbody tr.today-row td:first-child{
+  border-left:4px solid var(--premium-gold,#d6a84f)!important;
+}
+@media(max-width:700px){
+  .scroll tbody tr.today-row td{font-weight:700;}
+  .scroll tbody tr.today-row td:first-child{border-left-width:3px!important;}
+}
+</style>
