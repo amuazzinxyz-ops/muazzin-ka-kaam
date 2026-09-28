@@ -1791,3 +1791,10 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 <style id="safe-development-step-100">
 .hero img,.hero svg,.card img,.card svg{vertical-align:middle;}
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium table row hover/focus clarity; existing data/functionality preserved. -->
+<style id="safe-development-step-100">
+tbody tr{transition:background-color .16s ease,box-shadow .16s ease;}
+tbody tr:hover{box-shadow:inset 3px 0 0 currentColor;}
+@media (prefers-reduced-motion:reduce){tbody tr{transition:none;}}
+</style>
