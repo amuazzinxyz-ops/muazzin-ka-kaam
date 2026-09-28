@@ -1565,3 +1565,12 @@ tbody tr:nth-child(even){background-color:rgba(7,94,59,.018);}
 tbody tr:nth-child(even):hover{background-color:rgba(214,168,79,.07);}
 @media(max-width:700px){tbody tr:nth-child(even){background-color:rgba(7,94,59,.014);}}
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium mobile table cell spacing; existing data/functionality preserved. -->
+<style id="safe-development-step-62">
+@media(max-width:700px){
+td,th{padding-left:7px;padding-right:7px;}
+td{min-height:38px;}
+}
+@media(max-width:420px){td,th{padding-left:5px;padding-right:5px;}}
+</style>
