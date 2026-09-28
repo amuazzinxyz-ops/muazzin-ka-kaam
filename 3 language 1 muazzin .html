@@ -1012,3 +1012,8 @@ button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{ou
 html,body{max-width:100%;overflow-x:hidden;}
 img,video,canvas{max-width:100%;height:auto;}
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: mobile viewport safeguard; no existing UI/function logic changed. -->
+<style id="safe-development-step-4">
+@media (max-width:600px){html{width:100%;min-width:0;}body{width:100%;min-width:0;}}
+</style>
