@@ -1365,3 +1365,18 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
   }
 }
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium selection/disabled-state polish; existing data/functionality preserved. -->
+<style id="safe-development-step-40">
+button:disabled,input:disabled,select:disabled,textarea:disabled{
+  cursor:not-allowed;
+  opacity:.62;
+  box-shadow:none!important;
+}
+button[aria-pressed="true"],button.active{
+  box-shadow:0 0 0 2px rgba(214,168,79,.30),0 4px 10px rgba(23,50,42,.12);
+}
+::selection{
+  background:rgba(214,168,79,.28);
+}
+</style>
