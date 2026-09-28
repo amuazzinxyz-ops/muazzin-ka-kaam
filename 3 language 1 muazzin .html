@@ -1476,3 +1476,10 @@ input::placeholder,textarea::placeholder{opacity:.72;}
 input:disabled,select:disabled,textarea:disabled{cursor:not-allowed;}
 @media(max-width:700px){input,select,textarea{min-height:38px;}}
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium search-control grouping; existing search logic preserved. -->
+<style id="safe-development-step-50">
+input[type="search"],input[name*="search" i]{border-radius:12px;}
+input[type="search"]:focus,input[name*="search" i]:focus{box-shadow:0 0 0 3px rgba(214,168,79,.18),0 5px 16px rgba(7,94,59,.08);}
+@media(max-width:700px){input[type="search"],input[name*="search" i]{font-size:16px;}}
+</style>
