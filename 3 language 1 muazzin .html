@@ -1238,3 +1238,30 @@ input:focus,select:focus,textarea:focus{
   outline:none;
 }
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium month section polish; existing data/functionality preserved. -->
+<style id="safe-development-step-33">
+.month{
+  position:relative;
+  overflow:visible;
+}
+.month h2{
+  border-radius:10px;
+  background:linear-gradient(90deg,rgba(7,94,59,.08),rgba(214,168,79,.05));
+  padding-left:12px;
+}
+.month h2:before{
+  content:"";
+  display:inline-block;
+  width:7px;
+  height:7px;
+  margin:0 8px 2px 0;
+  border-radius:50%;
+  background:var(--premium-gold,#d6a84f);
+  box-shadow:0 0 0 4px rgba(214,168,79,.12);
+}
+@media(max-width:700px){
+  .month h2{padding-left:10px;}
+  .month h2:before{width:6px;height:6px;margin-right:7px;}
+}
+</style>
