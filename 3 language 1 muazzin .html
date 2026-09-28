@@ -1874,3 +1874,9 @@ if('serviceWorker' in navigator && (location.protocol === 'https:' || location.h
   document.addEventListener('click',function(e){const b=e.target.closest&&e.target.closest('#pwaInstallButton');if(!b||!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(function(){deferredPrompt=null;b.classList.remove('pwa-ready');});});
 })();
 </script>
+
+<style id="safe-development-step-112">
+/* Step 112: install button sizing when dynamically shown */
+#pwaInstallButton.pwa-ready{min-height:40px;min-width:44px;padding:.55rem .9rem;}
+@media (max-width:420px){#pwaInstallButton.pwa-ready{min-height:40px;min-width:44px;padding:.55rem .85rem;}}
+</style>
