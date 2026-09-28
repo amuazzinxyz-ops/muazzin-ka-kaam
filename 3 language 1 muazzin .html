@@ -1159,3 +1159,14 @@ button:active{transform:translateY(1px);}
 .scroll tbody tr.today-row td{box-shadow:inset 0 0 0 1px rgba(214,168,79,.45);}
 @media(max-width:700px){.scroll tbody tr:hover td{background:inherit!important;}}
 </style>
+
+<!-- SAFE DEVELOPMENT STEP: premium timetable border/readability polish; existing data/functionality preserved. -->
+<style id="safe-development-step-27">
+.scroll table{border:1px solid rgba(7,94,59,.18);}
+.scroll th,.scroll td{border-color:rgba(7,94,59,.16)!important;}
+.scroll tbody td{color:#17322a;}
+@media(max-width:700px){
+  .scroll table{border-radius:10px;overflow:hidden;}
+  .scroll th,.scroll td{padding-top:7px!important;padding-bottom:7px!important;}
+}
+</style>
